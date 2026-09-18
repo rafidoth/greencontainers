@@ -1,0 +1,1233 @@
+{
+  "ExperimentID": "exp-1789027194",
+  "Config": {
+    "Images": [
+      "ubuntu:latest",
+      "alpine:latest"
+    ],
+    "Trials": 3,
+    "IdleDuration": 10000000000,
+    "OutputDirectory": "./results",
+    "Dockerfile": "",
+    "BuildContext": "",
+    "ContainerCommand": "",
+    "ContainerPort": "",
+    "ReadinessCheck": "",
+    "BaselineDuration": 10000000000,
+    "EnableBaselineCorrection": true,
+    "CPUSamplingInterval": 1000000000,
+    "MemorySamplingInterval": 1000000000,
+    "ColdPull": true,
+    "Randomize": false
+  },
+  "DockerVer": "29.7.2",
+  "Baseline": {
+    "Duration": 10000676879,
+    "EnergyJoules": 23.34796,
+    "PowerWatts": 2.33463797325833,
+    "CPUAvgPercent": 1.4451285016601452,
+    "MemAvgMB": 4318.418402777777
+  },
+  "Stages": [
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-ubuntu:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Pull",
+      "StartedAt": "2026-09-10T14:00:04.331823515+06:00",
+      "FinishedAt": "2026-09-10T14:00:16.268542753+06:00",
+      "Duration": 11936719218,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:04.331823515+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2297483282,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:16.268542753+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2337546045,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 40062763,
+      "RawEnergyJoules": 40.062763,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 27.867917962465278,
+      "EnergyCorrectedJ": 12.19484503753472,
+      "AveragePowerWatts": 3.356262492929152,
+      "CPUAvgPercent": 2.650262030510371,
+      "CPUPeakPercent": 5.336617405582923,
+      "MemAvgMB": 4342.029119318182,
+      "MemPeakMB": 4362.078125,
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-ubuntu:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StartedAt": "2026-09-10T14:00:16.286196931+06:00",
+      "FinishedAt": "2026-09-10T14:00:16.297311304+06:00",
+      "Duration": 11114384,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:16.286196931+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2337863534,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:16.297311304+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2338039580,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 176046,
+      "RawEnergyJoules": 0.176046,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.02594806293577481,
+      "EnergyCorrectedJ": 0.1500979370642252,
+      "AveragePowerWatts": 15.839474324442993,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: Invalid container name (greencontainers-exp-1789027194-t1-ubuntu:latest), only [a-zA-Z0-9][a-zA-Z0-9_.-] are allowed"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-ubuntu:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StartedAt": "2026-09-10T14:00:16.297424778+06:00",
+      "FinishedAt": "2026-09-10T14:00:16.297738839+06:00",
+      "Duration": 314091,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:16.297424778+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2338039580,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:16.297738839+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2338039580,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 0,
+      "RawEnergyJoules": 0,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.000733288775658682,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 0,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t1-ubuntu:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-ubuntu:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StartedAt": "2026-09-10T14:00:16.297841061+06:00",
+      "FinishedAt": "2026-09-10T14:00:16.409367904+06:00",
+      "Duration": 111526853,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:16.297841061+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2338039580,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:16.409367904+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2338990764,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 951184,
+      "RawEnergyJoules": 0.951184,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.2603748260517997,
+      "EnergyCorrectedJ": 0.6908091739482003,
+      "AveragePowerWatts": 8.528744194010388,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t1-ubuntu:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-alpine:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Pull",
+      "StartedAt": "2026-09-10T14:00:16.409591304+06:00",
+      "FinishedAt": "2026-09-10T14:00:25.873526869+06:00",
+      "Duration": 9463935545,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:16.409591304+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2338990764,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:25.873526869+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2361005449,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 22014685,
+      "RawEnergyJoules": 22.014685,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 22.094863299826265,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 2.32616599038767,
+      "CPUAvgPercent": 1.484370173661838,
+      "CPUPeakPercent": 2.8192371475953566,
+      "MemAvgMB": 4370.693142361111,
+      "MemPeakMB": 4377.82421875,
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-alpine:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Start",
+      "StartedAt": "2026-09-10T14:00:25.898066153+06:00",
+      "FinishedAt": "2026-09-10T14:00:25.908951445+06:00",
+      "Duration": 10885293,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:25.898066153+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2361260807,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:25.908951445+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2361433009,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 172202,
+      "RawEnergyJoules": 0.172202,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.025413218387843085,
+      "EnergyCorrectedJ": 0.14678878161215692,
+      "AveragePowerWatts": 15.819693599428144,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: Invalid container name (greencontainers-exp-1789027194-t1-alpine:latest), only [a-zA-Z0-9][a-zA-Z0-9_.-] are allowed"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-alpine:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Stop",
+      "StartedAt": "2026-09-10T14:00:25.909046104+06:00",
+      "FinishedAt": "2026-09-10T14:00:25.909314328+06:00",
+      "Duration": 268224,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:25.909046104+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2361433009,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:25.909314328+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2361433009,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 0,
+      "RawEnergyJoules": 0,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.0006262059357392423,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 0,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t1-alpine:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t1-alpine:latest",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Cleanup",
+      "StartedAt": "2026-09-10T14:00:25.90936817+06:00",
+      "FinishedAt": "2026-09-10T14:00:26.123440196+06:00",
+      "Duration": 214072066,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:25.90936817+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2361433009,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:26.123440196+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2362297725,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 864716,
+      "RawEnergyJoules": 0.864716,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.4997807742974634,
+      "EnergyCorrectedJ": 0.3649352257025366,
+      "AveragePowerWatts": 4.039368686244193,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t1-alpine:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-ubuntu:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Pull",
+      "StartedAt": "2026-09-10T14:00:26.123664198+06:00",
+      "FinishedAt": "2026-09-10T14:00:39.162613954+06:00",
+      "Duration": 13038949716,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:26.123664198+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2362297725,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:39.162613954+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2404435881,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 42138156,
+      "RawEnergyJoules": 42.138156,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 30.441227138379514,
+      "EnergyCorrectedJ": 11.696928861620489,
+      "AveragePowerWatts": 3.2317139737330667,
+      "CPUAvgPercent": 3.06848449741145,
+      "CPUPeakPercent": 9.966777408637874,
+      "MemAvgMB": 4391.9573317307695,
+      "MemPeakMB": 4422.40234375,
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-ubuntu:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StartedAt": "2026-09-10T14:00:39.179145451+06:00",
+      "FinishedAt": "2026-09-10T14:00:39.192931421+06:00",
+      "Duration": 13785930,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:39.179145451+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2404683076,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:39.192931421+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2404932148,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 249072,
+      "RawEnergyJoules": 0.249072,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.03218515567468121,
+      "EnergyCorrectedJ": 0.2168868443253188,
+      "AveragePowerWatts": 18.06711625548657,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: Invalid container name (greencontainers-exp-1789027194-t2-ubuntu:latest), only [a-zA-Z0-9][a-zA-Z0-9_.-] are allowed"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-ubuntu:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StartedAt": "2026-09-10T14:00:39.193025809+06:00",
+      "FinishedAt": "2026-09-10T14:00:39.193359367+06:00",
+      "Duration": 333558,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:39.193025809+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2404944385,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:39.193359367+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2404944385,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 0,
+      "RawEnergyJoules": 0,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.000778737173084102,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 0,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t2-ubuntu:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-ubuntu:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StartedAt": "2026-09-10T14:00:39.193445569+06:00",
+      "FinishedAt": "2026-09-10T14:00:39.308136417+06:00",
+      "Duration": 114690878,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:39.193445569+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2404944385,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:39.308136417+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2405903121,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 958736,
+      "RawEnergyJoules": 0.958736,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.26776167896513836,
+      "EnergyCorrectedJ": 0.6909743210348617,
+      "AveragePowerWatts": 8.359304739126681,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t2-ubuntu:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-alpine:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Pull",
+      "StartedAt": "2026-09-10T14:00:39.308342956+06:00",
+      "FinishedAt": "2026-09-10T14:00:46.892968063+06:00",
+      "Duration": 7584625097,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:39.308342956+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2405903121,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:46.892968063+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2421933771,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 16030650,
+      "RawEnergyJoules": 16.03065,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 17.707353764384344,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 2.113571837102498,
+      "CPUAvgPercent": 1.6849937767266678,
+      "CPUPeakPercent": 2.7477102414654455,
+      "MemAvgMB": 4396.922991071428,
+      "MemPeakMB": 4401.16015625,
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-alpine:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Start",
+      "StartedAt": "2026-09-10T14:00:46.912562914+06:00",
+      "FinishedAt": "2026-09-10T14:00:46.926322635+06:00",
+      "Duration": 13759721,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:46.912562914+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2422238839,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:46.926322635+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2422448225,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 209386,
+      "RawEnergyJoules": 0.209386,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.03212396714804008,
+      "EnergyCorrectedJ": 0.1772620328519599,
+      "AveragePowerWatts": 15.217314362696742,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: Invalid container name (greencontainers-exp-1789027194-t2-alpine:latest), only [a-zA-Z0-9][a-zA-Z0-9_.-] are allowed"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-alpine:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Stop",
+      "StartedAt": "2026-09-10T14:00:46.926420509+06:00",
+      "FinishedAt": "2026-09-10T14:00:46.926711647+06:00",
+      "Duration": 291138,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:46.926420509+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2422448225,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:46.926711647+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2422448225,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 0,
+      "RawEnergyJoules": 0,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.0006797018302584836,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 0,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t2-alpine:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t2-alpine:latest",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Cleanup",
+      "StartedAt": "2026-09-10T14:00:46.926772732+06:00",
+      "FinishedAt": "2026-09-10T14:00:46.950297126+06:00",
+      "Duration": 23524395,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:46.926772732+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2422448225,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:00:46.950297126+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2422659014,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 210789,
+      "RawEnergyJoules": 0.210789,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.054920945864928385,
+      "EnergyCorrectedJ": 0.15586805413507163,
+      "AveragePowerWatts": 8.960442978448542,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t2-alpine:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-ubuntu:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Pull",
+      "StartedAt": "2026-09-10T14:00:46.950425759+06:00",
+      "FinishedAt": "2026-09-10T14:01:00.971121106+06:00",
+      "Duration": 14020695347,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:00:46.950425759+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2422659014,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:00.971121106+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2464594315,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 41935301,
+      "RawEnergyJoules": 41.935301,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 32.73324776859258,
+      "EnergyCorrectedJ": 9.202053231407426,
+      "AveragePowerWatts": 2.9909572929257657,
+      "CPUAvgPercent": 3.036986008291834,
+      "CPUPeakPercent": 10.149750415973378,
+      "MemAvgMB": 4388.238839285715,
+      "MemPeakMB": 4399.95703125,
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-ubuntu:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StartedAt": "2026-09-10T14:01:00.989168425+06:00",
+      "FinishedAt": "2026-09-10T14:01:00.9995183+06:00",
+      "Duration": 10349835,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:01:00.989168425+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2464940443,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:00.9995183+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2465071341,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 130898,
+      "RawEnergyJoules": 0.130898,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.024163117807958125,
+      "EnergyCorrectedJ": 0.10673488219204186,
+      "AveragePowerWatts": 12.64735138289644,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: Invalid container name (greencontainers-exp-1789027194-t3-ubuntu:latest), only [a-zA-Z0-9][a-zA-Z0-9_.-] are allowed"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-ubuntu:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StartedAt": "2026-09-10T14:01:00.999612036+06:00",
+      "FinishedAt": "2026-09-10T14:01:00.999915026+06:00",
+      "Duration": 303030,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:01:00.999612036+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2465071341,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:00.999915026+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2465085989,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 14648,
+      "RawEnergyJoules": 0.014648,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.0007074653450364716,
+      "EnergyCorrectedJ": 0.013940534654963529,
+      "AveragePowerWatts": 48.33844833844834,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t3-ubuntu:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-ubuntu:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "ubuntu",
+        "Tag": "latest",
+        "Digest": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "ID": "sha256:513c074113a871b51a8d16ab445c88779d6452d937a164fb5cc479f32668a41d",
+        "SizeBytes": 41615567,
+        "SizeMB": 39.687697410583496,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StartedAt": "2026-09-10T14:01:01.000054378+06:00",
+      "FinishedAt": "2026-09-10T14:01:01.114541176+06:00",
+      "Duration": 114486757,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:01:01.000054378+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2465085989,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:01.114541176+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2466011631,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 925642,
+      "RawEnergyJoules": 0.925642,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.26728513032739887,
+      "EnergyCorrectedJ": 0.6583568696726011,
+      "AveragePowerWatts": 8.085144729883474,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t3-ubuntu:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-alpine:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Pull",
+      "StartedAt": "2026-09-10T14:01:01.114686238+06:00",
+      "FinishedAt": "2026-09-10T14:01:09.104395858+06:00",
+      "Duration": 7989709629,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:01:01.114686238+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2466011631,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:09.104395858+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2481535333,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 15523702,
+      "RawEnergyJoules": 15.523702,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 18.653079495171124,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 1.9429619749451348,
+      "CPUAvgPercent": 1.2798074587453434,
+      "CPUPeakPercent": 1.7384105960264902,
+      "MemAvgMB": 4387.939732142857,
+      "MemPeakMB": 4390.3671875,
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-alpine:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Start",
+      "StartedAt": "2026-09-10T14:01:09.12462869+06:00",
+      "FinishedAt": "2026-09-10T14:01:09.137647677+06:00",
+      "Duration": 13018987,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:01:09.12462869+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2481898855,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:09.137647677+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2482086986,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 188131,
+      "RawEnergyJoules": 0.188131,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.03039462142355654,
+      "EnergyCorrectedJ": 0.15773637857644346,
+      "AveragePowerWatts": 14.450509859177215,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: Invalid container name (greencontainers-exp-1789027194-t3-alpine:latest), only [a-zA-Z0-9][a-zA-Z0-9_.-] are allowed"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-alpine:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Stop",
+      "StartedAt": "2026-09-10T14:01:09.137737116+06:00",
+      "FinishedAt": "2026-09-10T14:01:09.138191932+06:00",
+      "Duration": 454816,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:01:09.137737116+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2482086986,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:09.138191932+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2482101054,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 14068,
+      "RawEnergyJoules": 0.014068,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.0010618307044454604,
+      "EnergyCorrectedJ": 0.01300616929555454,
+      "AveragePowerWatts": 30.931189755857318,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t3-alpine:latest"
+    },
+    {
+      "ExperimentID": "exp-1789027194",
+      "TrialID": "exp-1789027194-t3-alpine:latest",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "alpine",
+        "Tag": "latest",
+        "Digest": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "ID": "sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b",
+        "SizeBytes": 3857242,
+        "SizeMB": 3.6785526275634766,
+        "NumLayers": 1
+      },
+      "Stage": "Cleanup",
+      "StartedAt": "2026-09-10T14:01:09.138445579+06:00",
+      "FinishedAt": "2026-09-10T14:01:09.163122072+06:00",
+      "Duration": 24676533,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-10T14:01:09.138445579+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2482101054,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-10T14:01:09.163122072+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2482348051,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 246997,
+      "RawEnergyJoules": 0.246997,
+      "BaselinePowerWatts": 2.33463797325833,
+      "BackgroundEnergyJ": 0.05761077099016229,
+      "EnergyCorrectedJ": 0.1893862290098377,
+      "AveragePowerWatts": 10.009388271845157,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "Success": false,
+      "Error": "Error response from daemon: No such container: greencontainers-exp-1789027194-t3-alpine:latest"
+    }
+  ]
+}

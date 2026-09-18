@@ -1,0 +1,54 @@
+# Experiment: Simple API on Alpine Linux
+# Tests I/O and memory bound workload across idle, light, medium, and heavy loads.
+
+experiment_id: "simple-api-alpine"
+
+trials: 3
+
+build:
+  context: "./workloads/simple-api"
+  dockerfile: "Dockerfile"
+  base_image: "alpine:latest"
+  tag: "green-simple-api:alpine"
+  cold_pull: true
+
+container:
+  host_port: 8080
+  container_port: 8080
+
+endpoints:
+  health: "http://localhost:8080/health"
+  target: "http://localhost:8080/data"
+
+baseline:
+  duration: "60s"
+
+cooldown: "10s"
+
+output_directory: "./results"
+
+stages:
+  - name: "idle"
+    type: "idle"
+    duration: "60s"
+
+  - name: "light-load"
+    type: "k6"
+    duration: "60s"
+    rate: 100
+    threads: 2
+    connections: 10
+
+  - name: "medium-load"
+    type: "k6"
+    duration: "60s"
+    rate: 10000
+    threads: 4
+    connections: 25
+
+  - name: "heavy-load"
+    type: "k6"
+    duration: "60s"
+    rate: 50000
+    threads: 4
+    connections: 50

@@ -1,0 +1,1407 @@
+{
+  "ExperimentID": "cpu-api-ubuntu",
+  "Config": {
+    "ExperimentID": "cpu-api-ubuntu",
+    "Trials": 3,
+    "Build": {
+      "Context": "./workloads/cpu-api",
+      "Dockerfile": "Dockerfile",
+      "BaseImage": "ubuntu:latest",
+      "Tag": "green-cpu-api:ubuntu",
+      "ColdPull": true
+    },
+    "Container": {
+      "HostPort": 8080,
+      "ContainerPort": 8080
+    },
+    "Endpoints": {
+      "Health": "http://localhost:8080/health",
+      "Target": "http://localhost:8080/compute"
+    },
+    "Baseline": {
+      "Duration": "60s"
+    },
+    "Cooldown": "10s",
+    "Stages": [
+      {
+        "Name": "idle",
+        "Type": "idle",
+        "Duration": "60s",
+        "Rate": 0,
+        "Threads": 0,
+        "Connections": 0,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "light-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 100,
+        "Threads": 2,
+        "Connections": 10,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "medium-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 500,
+        "Threads": 4,
+        "Connections": 25,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "heavy-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 1000,
+        "Threads": 4,
+        "Connections": 50,
+        "ParsedDuration": 60000000000
+      }
+    ],
+    "CooldownDuration": 10000000000,
+    "BaselineDuration": 60000000000,
+    "EnableBaselineCorrection": true,
+    "CPUSamplingInterval": 1000000000,
+    "MemorySamplingInterval": 1000000000,
+    "Images": null,
+    "IdleDuration": 0,
+    "OutputDirectory": "./results",
+    "ColdPull": false,
+    "Randomize": false,
+    "Dockerfile": "",
+    "BuildContext": "",
+    "ContainerCommand": "",
+    "ContainerPort": ""
+  },
+  "DockerVer": "29.7.2",
+  "Baseline": {
+    "Duration": 60000805915,
+    "EnergyJoules": 103.585555,
+    "PowerWatts": 1.726402727769094,
+    "CPUAvgPercent": 0.6953971146128921,
+    "MemAvgMB": 4171.736692266949
+  },
+  "Stages": [
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-pull",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Pull",
+      "StageName": "pull",
+      "StageType": "pull",
+      "StartedAt": "2026-09-18T18:08:42.232285999+06:00",
+      "FinishedAt": "2026-09-18T18:08:55.904729194+06:00",
+      "Duration": 13672443185,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:08:42.232285999+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61242128857,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:08:55.904729194+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61301780863,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 59652006,
+      "RawEnergyJoules": 59.652006,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 23.604143209851962,
+      "EnergyCorrectedJ": 36.04786279014804,
+      "AveragePowerWatts": 4.362936835271991,
+      "CPUAvgPercent": 3.9918157422863105,
+      "CPUPeakPercent": 12.052117263843648,
+      "MemAvgMB": 4206.490985576923,
+      "MemPeakMB": 4270.09375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-build",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Build",
+      "StageName": "build",
+      "StageType": "build",
+      "StartedAt": "2026-09-18T18:08:55.904900275+06:00",
+      "FinishedAt": "2026-09-18T18:09:13.622430228+06:00",
+      "Duration": 17717529963,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:08:55.904900275+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61301780863,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:09:13.622430228+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61598453005,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 296672142,
+      "RawEnergyJoules": 296.672142,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 30.587592057453858,
+      "EnergyCorrectedJ": 266.0845499425462,
+      "AveragePowerWatts": 16.744554270236794,
+      "CPUAvgPercent": 36.5202487172134,
+      "CPUPeakPercent": 94.83333333333333,
+      "MemAvgMB": 4442.065487132353,
+      "MemPeakMB": 4677.04296875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-18T18:09:13.6338007+06:00",
+      "FinishedAt": "2026-09-18T18:09:13.866147263+06:00",
+      "Duration": 232346563,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:09:13.6338007+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61598584773,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:09:13.866147263+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61600432456,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1847683,
+      "RawEnergyJoules": 1.847683,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 0.4011237401509737,
+      "EnergyCorrectedJ": 1.4465592598490262,
+      "AveragePowerWatts": 7.952271710599825,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-18T18:09:14.370166612+06:00",
+      "FinishedAt": "2026-09-18T18:10:14.37122949+06:00",
+      "Duration": 60001062909,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:09:14.370166612+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61601438676,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:10:14.37122949+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61697597216,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 96158540,
+      "RawEnergyJoules": 96.15854,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 103.58599867514262,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 1.6026139427869448,
+      "CPUAvgPercent": 0.6915147792607409,
+      "CPUPeakPercent": 1.0833333333333333,
+      "MemAvgMB": 4243.6691604872885,
+      "MemPeakMB": 4390.16015625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:10:24.380875037+06:00",
+      "FinishedAt": "2026-09-18T18:11:25.242584758+06:00",
+      "Duration": 60861709690,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:10:24.380875037+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61709788770,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:11:25.242584758+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 62031910600,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 322121830,
+      "RawEnergyJoules": 322.12183,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 105.0718216255067,
+      "EnergyCorrectedJ": 217.0500083744933,
+      "AveragePowerWatts": 5.292684540752013,
+      "CPUAvgPercent": 6.1786355099385135,
+      "CPUPeakPercent": 6.924979389942292,
+      "MemAvgMB": 4204.539518229167,
+      "MemPeakMB": 4214.671875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:11:35.251916787+06:00",
+      "FinishedAt": "2026-09-18T18:12:35.773578413+06:00",
+      "Duration": 60521661626,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:11:35.251916787+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 62049121914,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:12:35.773578413+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 62694412792,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 645290878,
+      "RawEnergyJoules": 645.290878,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.4847617202445,
+      "EnergyCorrectedJ": 540.8061162797555,
+      "AveragePowerWatts": 10.662147414055536,
+      "CPUAvgPercent": 28.51980496932105,
+      "CPUPeakPercent": 29.459901800327334,
+      "MemAvgMB": 4180.172200520833,
+      "MemPeakMB": 4183.265625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 500,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:12:45.783013864+06:00",
+      "FinishedAt": "2026-09-18T18:13:46.303551705+06:00",
+      "Duration": 60520537821,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:12:45.783013864+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 62711041556,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:13:46.303551705+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63776789343,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1065747787,
+      "RawEnergyJoules": 1065.747787,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.48282158022703,
+      "EnergyCorrectedJ": 961.264965419773,
+      "AveragePowerWatts": 17.609687973232067,
+      "CPUAvgPercent": 62.313520333471374,
+      "CPUPeakPercent": 65.00408830744072,
+      "MemAvgMB": 4181.322981770833,
+      "MemPeakMB": 4188.515625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 1000,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-18T18:13:46.30374622+06:00",
+      "FinishedAt": "2026-09-18T18:13:46.528769305+06:00",
+      "Duration": 225023115,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:13:46.30374622+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63776800268,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:13:46.528769305+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63778037539,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1237271,
+      "RawEnergyJoules": 1.237271,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 0.38848051954709856,
+      "EnergyCorrectedJ": 0.8487904804529014,
+      "AveragePowerWatts": 5.498417351479647,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-18T18:13:46.528978918+06:00",
+      "FinishedAt": "2026-09-18T18:13:46.569772969+06:00",
+      "Duration": 40794040,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:13:46.528978918+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63778037539,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:13:46.569772969+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63778240776,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 203237,
+      "RawEnergyJoules": 0.203237,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 0.07042694193272153,
+      "EnergyCorrectedJ": 0.13281005806727847,
+      "AveragePowerWatts": 4.982026786265838,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-18T18:13:46.569919264+06:00",
+      "FinishedAt": "2026-09-18T18:13:46.816301526+06:00",
+      "Duration": 246382272,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:13:46.569919264+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63778240776,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:13:46.816301526+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63780333349,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2092573,
+      "RawEnergyJoules": 2.092573,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 0.42535502645474693,
+      "EnergyCorrectedJ": 1.6672179735452528,
+      "AveragePowerWatts": 8.49319629620105,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-18T18:13:47.319854319+06:00",
+      "FinishedAt": "2026-09-18T18:14:47.321191142+06:00",
+      "Duration": 60001336813,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:13:47.319854319+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63781328308,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:14:47.321191142+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63891078263,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 109749955,
+      "RawEnergyJoules": 109.749955,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 103.58647154375537,
+      "EnergyCorrectedJ": 6.163483456244634,
+      "AveragePowerWatts": 1.8291251633617165,
+      "CPUAvgPercent": 0.7311452604013243,
+      "CPUPeakPercent": 2.7454242928452577,
+      "MemAvgMB": 4119.021028645833,
+      "MemPeakMB": 4120.34375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:14:57.330815828+06:00",
+      "FinishedAt": "2026-09-18T18:15:57.881712585+06:00",
+      "Duration": 60550896767,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:14:57.330815828+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63908157229,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:15:57.881712585+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 64246877841,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 338720612,
+      "RawEnergyJoules": 338.720612,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.53523334741362,
+      "EnergyCorrectedJ": 234.1853786525864,
+      "AveragePowerWatts": 5.593981758906029,
+      "CPUAvgPercent": 6.156845003530477,
+      "CPUPeakPercent": 6.882255389718076,
+      "MemAvgMB": 4148.419205729167,
+      "MemPeakMB": 4155.83984375,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:16:07.891221976+06:00",
+      "FinishedAt": "2026-09-18T18:17:08.537282491+06:00",
+      "Duration": 60646060515,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:16:07.891221976+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 64276702760,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:17:08.537282491+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 64962754455,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 686051695,
+      "RawEnergyJoules": 686.051695,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.69952430154555,
+      "EnergyCorrectedJ": 581.3521706984544,
+      "AveragePowerWatts": 11.312386809202787,
+      "CPUAvgPercent": 28.874356877386262,
+      "CPUPeakPercent": 36.33387888707038,
+      "MemAvgMB": 4170.3974609375,
+      "MemPeakMB": 4201.2421875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 500,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:17:18.546882951+06:00",
+      "FinishedAt": "2026-09-18T18:18:19.096042794+06:00",
+      "Duration": 60549159843,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:17:18.546882951+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 64980060933,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:18:19.096042794+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 500712203,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1053262257,
+      "RawEnergyJoules": 1053.262257,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.53223471708209,
+      "EnergyCorrectedJ": 948.730022282918,
+      "AveragePowerWatts": 17.395158904451193,
+      "CPUAvgPercent": 62.5714274078572,
+      "CPUPeakPercent": 64.48445171849427,
+      "MemAvgMB": 4181.321875,
+      "MemPeakMB": 4194.53515625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 1000,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-18T18:18:19.096187897+06:00",
+      "FinishedAt": "2026-09-18T18:18:19.818900809+06:00",
+      "Duration": 722712882,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:18:19.096187897+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 500712203,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:18:19.818900809+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 502729372,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2017169,
+      "RawEnergyJoules": 2.017169,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 1.2476934908786634,
+      "EnergyCorrectedJ": 0.7694755091213366,
+      "AveragePowerWatts": 2.791107022221309,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-18T18:18:19.819057563+06:00",
+      "FinishedAt": "2026-09-18T18:18:20.003628019+06:00",
+      "Duration": 184570485,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:18:19.819057563+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 502729372,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:18:20.003628019+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 503167734,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 438362,
+      "RawEnergyJoules": 0.438362,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 0.3186429887696647,
+      "EnergyCorrectedJ": 0.11971901123033529,
+      "AveragePowerWatts": 2.3750384575301946,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-18T18:18:20.003819509+06:00",
+      "FinishedAt": "2026-09-18T18:18:20.238500768+06:00",
+      "Duration": 234681239,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:18:20.003819509+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 503173670,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:18:20.238500768+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 504998267,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1824597,
+      "RawEnergyJoules": 1.824597,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 0.4051543311658307,
+      "EnergyCorrectedJ": 1.4194426688341693,
+      "AveragePowerWatts": 7.774788507913067,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-18T18:18:20.741943424+06:00",
+      "FinishedAt": "2026-09-18T18:19:20.743253813+06:00",
+      "Duration": 60001310419,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:18:20.741943424+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 506058118,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:19:20.743253813+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 607251738,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 101193620,
+      "RawEnergyJoules": 101.19362,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 103.58642597708176,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 1.6865234991260465,
+      "CPUAvgPercent": 0.4958445914037474,
+      "CPUPeakPercent": 0.8333333333333334,
+      "MemAvgMB": 4125.3123046875,
+      "MemPeakMB": 4129.29296875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:19:30.752842198+06:00",
+      "FinishedAt": "2026-09-18T18:20:31.276337893+06:00",
+      "Duration": 60523495694,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:19:30.752842198+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 624142786,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:20:31.276337893+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 966373409,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 342230623,
+      "RawEnergyJoules": 342.230623,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.48792806024261,
+      "EnergyCorrectedJ": 237.74269493975737,
+      "AveragePowerWatts": 5.654508535499661,
+      "CPUAvgPercent": 6.195399175787344,
+      "CPUPeakPercent": 7.254740313272877,
+      "MemAvgMB": 4148.5091796875,
+      "MemPeakMB": 4155.28125,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:20:41.279841228+06:00",
+      "FinishedAt": "2026-09-18T18:21:41.831331198+06:00",
+      "Duration": 60551489970,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:20:41.279841228+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 983189450,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:21:41.831331198+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 1634586457,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 651397007,
+      "RawEnergyJoules": 651.397007,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.53625745469094,
+      "EnergyCorrectedJ": 546.8607495453091,
+      "AveragePowerWatts": 10.757737048629723,
+      "CPUAvgPercent": 27.956856259645704,
+      "CPUPeakPercent": 28.816326530612244,
+      "MemAvgMB": 4163.041341145833,
+      "MemPeakMB": 4167.59765625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 500,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-18T18:21:51.833279217+06:00",
+      "FinishedAt": "2026-09-18T18:22:52.34869598+06:00",
+      "Duration": 60515416733,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:21:51.833279217+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 1646991166,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:22:52.34869598+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2694477477,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1047486311,
+      "RawEnergyJoules": 1047.486311,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 104.47398051993468,
+      "EnergyCorrectedJ": 943.0123304800652,
+      "AveragePowerWatts": 17.30941250262909,
+      "CPUAvgPercent": 62.45319456218544,
+      "CPUPeakPercent": 63.866231647634585,
+      "MemAvgMB": 4175.140559895834,
+      "MemPeakMB": 4187.58203125,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 1000,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-18T18:22:52.34883409+06:00",
+      "FinishedAt": "2026-09-18T18:22:53.056784127+06:00",
+      "Duration": 707950067,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:22:52.34883409+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2694477477,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:22:53.056784127+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2696389319,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1911842,
+      "RawEnergyJoules": 1.911842,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 1.2222069267931128,
+      "EnergyCorrectedJ": 0.6896350732068872,
+      "AveragePowerWatts": 2.700532267906403,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-ubuntu",
+      "TrialID": "cpu-api-ubuntu-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "ubuntu",
+        "Digest": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "ID": "sha256:3c5cc2f0eac6d34aba0467306348c2f95a322076969156e873e41f075d04db9b",
+        "SizeBytes": 47107494,
+        "SizeMB": 44.92520713806152,
+        "NumLayers": 3
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-18T18:22:53.056976829+06:00",
+      "FinishedAt": "2026-09-18T18:22:53.418344686+06:00",
+      "Duration": 361367877,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-18T18:22:53.056976829+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2696389319,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-18T18:22:53.418344686+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 2697148481,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 759162,
+      "RawEnergyJoules": 0.759162,
+      "BaselinePowerWatts": 1.726402727769094,
+      "BackgroundEnergyJ": 0.6238664885809265,
+      "EnergyCorrectedJ": 0.13529551141907348,
+      "AveragePowerWatts": 2.1008010072793493,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "ubuntu:latest",
+      "Success": true,
+      "Error": ""
+    }
+  ]
+}

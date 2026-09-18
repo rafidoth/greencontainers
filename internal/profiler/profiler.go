@@ -172,7 +172,7 @@ func (p *Profiler) RunExperimentYAML(ctx context.Context, baselineRes baseline.R
 	}
 
 	// --- Pull Stage ---
-	if p.cfg.Build.ColdPull && p.cfg.Build.BaseImage != "" {
+	if p.cfg.Build.ColdPull && p.cfg.Build.BaseImage != "" && p.cfg.Build.BaseImage != "scratch" {
 		slog.Info("performing cold pull of base image", "base_image", p.cfg.Build.BaseImage)
 		
 		// Ensure it's removed first (unmeasured setup)

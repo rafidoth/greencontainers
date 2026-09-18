@@ -1,12 +1,12 @@
-experiment_id: "cpu-api-ubuntu"
+experiment_id: "simple-api-distroless"
 
 trials: 3
 
 build:
-  context: "./workloads/cpu-api"
+  context: "./workloads/simple-api"
   dockerfile: "Dockerfile"
-  base_image: "ubuntu:latest"
-  tag: "green-cpu-api:ubuntu"
+  base_image: "gcr.io/distroless/static-debian12"
+  tag: "green-simple-api:distroless"
   cold_pull: true
 
 container:
@@ -15,7 +15,7 @@ container:
 
 endpoints:
   health: "http://localhost:8080/health"
-  target: "http://localhost:8080/compute"
+  target: "http://localhost:8080/data"
 
 baseline:
   duration: "60s"

@@ -1,0 +1,1352 @@
+{
+  "ExperimentID": "simple-api-scratch",
+  "Config": {
+    "ExperimentID": "simple-api-scratch",
+    "Trials": 3,
+    "Build": {
+      "Context": "./workloads/simple-api",
+      "Dockerfile": "Dockerfile",
+      "BaseImage": "scratch",
+      "Tag": "green-simple-api:scratch",
+      "ColdPull": true
+    },
+    "Container": {
+      "HostPort": 8080,
+      "ContainerPort": 8080
+    },
+    "Endpoints": {
+      "Health": "http://localhost:8080/health",
+      "Target": "http://localhost:8080/data"
+    },
+    "Baseline": {
+      "Duration": "60s"
+    },
+    "Cooldown": "10s",
+    "Stages": [
+      {
+        "Name": "idle",
+        "Type": "idle",
+        "Duration": "60s",
+        "Rate": 0,
+        "Threads": 0,
+        "Connections": 0,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "light-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 100,
+        "Threads": 2,
+        "Connections": 10,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "medium-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 10000,
+        "Threads": 4,
+        "Connections": 100,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "heavy-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 50000,
+        "Threads": 4,
+        "Connections": 200,
+        "ParsedDuration": 60000000000
+      }
+    ],
+    "CooldownDuration": 10000000000,
+    "BaselineDuration": 60000000000,
+    "EnableBaselineCorrection": true,
+    "CPUSamplingInterval": 1000000000,
+    "MemorySamplingInterval": 1000000000,
+    "Images": null,
+    "IdleDuration": 0,
+    "OutputDirectory": "./results",
+    "ColdPull": false,
+    "Randomize": false,
+    "Dockerfile": "",
+    "BuildContext": "",
+    "ContainerCommand": "",
+    "ContainerPort": ""
+  },
+  "DockerVer": "29.7.2",
+  "Baseline": {
+    "Duration": 60001229122,
+    "EnergyJoules": 467.362747,
+    "PowerWatts": 7.789219551648104,
+    "CPUAvgPercent": 7.916382437685228,
+    "MemAvgMB": 4059.9482918432204
+  },
+  "Stages": [
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-build",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Build",
+      "StageName": "build",
+      "StageType": "build",
+      "StartedAt": "2026-09-19T00:09:16.735915643+06:00",
+      "FinishedAt": "2026-09-19T00:09:34.541244181+06:00",
+      "Duration": 17805328548,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:09:16.735915643+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 25488764208,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:09:34.541244181+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 25831853277,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 343089069,
+      "RawEnergyJoules": 343.089069,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 138.68961324959974,
+      "EnergyCorrectedJ": 204.39945575040025,
+      "AveragePowerWatts": 19.26889852524164,
+      "CPUAvgPercent": 41.506926676703024,
+      "CPUPeakPercent": 93.34442595673877,
+      "MemAvgMB": 4120.97403492647,
+      "MemPeakMB": 4427.66796875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T00:09:34.550841208+06:00",
+      "FinishedAt": "2026-09-19T00:09:34.783030139+06:00",
+      "Duration": 232188931,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:09:34.550841208+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 25832080758,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:09:34.783030139+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 25835967490,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3886732,
+      "RawEnergyJoules": 3.886732,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 1.8085705610214724,
+      "EnergyCorrectedJ": 2.0781614389785275,
+      "AveragePowerWatts": 16.739523211810646,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T00:09:35.286094321+06:00",
+      "FinishedAt": "2026-09-19T00:10:35.287357322+06:00",
+      "Duration": 60001262990,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:09:35.286094321+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 25840253859,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:10:35.287357322+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 26283793116,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 443539257,
+      "RawEnergyJoules": 443.539257,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 467.3630108052878,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 7.392165346151491,
+      "CPUAvgPercent": 7.4588848331730775,
+      "CPUPeakPercent": 9.195402298850574,
+      "MemAvgMB": 4028.2084878177966,
+      "MemPeakMB": 4049.375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:10:45.296007717+06:00",
+      "FinishedAt": "2026-09-19T00:11:45.841497389+06:00",
+      "Duration": 60545489632,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:10:45.296007717+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 26356727302,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:11:45.841497389+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 26905504983,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 548777681,
+      "RawEnergyJoules": 548.777681,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 471.60211160568196,
+      "EnergyCorrectedJ": 77.17556939431807,
+      "AveragePowerWatts": 9.063890379539611,
+      "CPUAvgPercent": 8.745804966871258,
+      "CPUPeakPercent": 10.24390243902439,
+      "MemAvgMB": 4061.786067708333,
+      "MemPeakMB": 4070.82421875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:11:55.849033444+06:00",
+      "FinishedAt": "2026-09-19T00:12:56.394349773+06:00",
+      "Duration": 60545316289,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:11:55.849033444+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 26978705238,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:12:56.394349773+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 28385579580,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1406874342,
+      "RawEnergyJoules": 1406.874342,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 471.60076139899724,
+      "EnergyCorrectedJ": 935.2735806010028,
+      "AveragePowerWatts": 23.236716367697035,
+      "CPUAvgPercent": 48.85506015244046,
+      "CPUPeakPercent": 50.04128819157721,
+      "MemAvgMB": 4153.197330729166,
+      "MemPeakMB": 4208.265625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:13:06.403903353+06:00",
+      "FinishedAt": "2026-09-19T00:14:07.525909989+06:00",
+      "Duration": 61122006616,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:13:06.403903353+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 28456254391,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:14:07.525909989+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29829072999,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1372818608,
+      "RawEnergyJoules": 1372.818608,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 476.09272896931196,
+      "EnergyCorrectedJ": 896.725879030688,
+      "AveragePowerWatts": 22.460300045853455,
+      "CPUAvgPercent": 96.91978298140394,
+      "CPUPeakPercent": 99.08026755852843,
+      "MemAvgMB": 5046.488153176229,
+      "MemPeakMB": 5519.34765625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T00:14:07.526137688+06:00",
+      "FinishedAt": "2026-09-19T00:14:07.861558054+06:00",
+      "Duration": 335420366,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:14:07.526137688+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29829072999,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:14:07.861558054+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29834483898,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 5410899,
+      "RawEnergyJoules": 5.410899,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 2.6126628728681633,
+      "EnergyCorrectedJ": 2.7982361271318363,
+      "AveragePowerWatts": 16.131694877466085,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T00:14:07.861672159+06:00",
+      "FinishedAt": "2026-09-19T00:14:07.891982821+06:00",
+      "Duration": 30310642,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:14:07.861672159+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29834483898,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:14:07.891982821+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29835018844,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 534946,
+      "RawEnergyJoules": 0.534946,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 0.23609624528940618,
+      "EnergyCorrectedJ": 0.29884975471059383,
+      "AveragePowerWatts": 17.648784872323063,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T00:14:07.89210997+06:00",
+      "FinishedAt": "2026-09-19T00:14:08.131002042+06:00",
+      "Duration": 238892072,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:14:07.89210997+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29835018844,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:14:08.131002042+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29839406953,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 4388109,
+      "RawEnergyJoules": 4.388109,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 1.8607827979561267,
+      "EnergyCorrectedJ": 2.5273262020438736,
+      "AveragePowerWatts": 18.36858361712397,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T00:14:08.633701308+06:00",
+      "FinishedAt": "2026-09-19T00:15:08.633983509+06:00",
+      "Duration": 60000282201,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:14:08.633701308+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29843399544,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:15:08.633983509+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 30274953566,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 431554022,
+      "RawEnergyJoules": 431.554022,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 467.35537122443293,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 7.192533204332286,
+      "CPUAvgPercent": 7.477056676975228,
+      "CPUPeakPercent": 8.05921052631579,
+      "MemAvgMB": 4036.6574869791666,
+      "MemPeakMB": 4052.0625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:15:18.642500135+06:00",
+      "FinishedAt": "2026-09-19T00:16:19.130313415+06:00",
+      "Duration": 60487813289,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:15:18.642500135+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 30347117254,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:16:19.130313415+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 30901649871,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 554532617,
+      "RawEnergyJoules": 554.532617,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 471.15285790711886,
+      "EnergyCorrectedJ": 83.3797590928811,
+      "AveragePowerWatts": 9.167675054651783,
+      "CPUAvgPercent": 8.49492571896898,
+      "CPUPeakPercent": 9.852216748768473,
+      "MemAvgMB": 4064.5655598958333,
+      "MemPeakMB": 4072.890625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:16:29.139589954+06:00",
+      "FinishedAt": "2026-09-19T00:17:29.651791216+06:00",
+      "Duration": 60512201222,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:16:29.139589954+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 30975535378,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:17:29.651791216+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 32374260132,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1398724754,
+      "RawEnergyJoules": 1398.724754,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 471.34282087166673,
+      "EnergyCorrectedJ": 927.3819331283333,
+      "AveragePowerWatts": 23.114755797240367,
+      "CPUAvgPercent": 47.89415677001636,
+      "CPUPeakPercent": 49.256198347107436,
+      "MemAvgMB": 4175.310481770834,
+      "MemPeakMB": 4236.28125,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:17:39.661023847+06:00",
+      "FinishedAt": "2026-09-19T00:18:40.610045821+06:00",
+      "Duration": 60949021944,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:17:39.661023847+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 32447697450,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:18:40.610045821+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33840617237,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1392919787,
+      "RawEnergyJoules": 1392.919787,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 474.74531338003413,
+      "EnergyCorrectedJ": 918.174473619966,
+      "AveragePowerWatts": 22.853849702130013,
+      "CPUAvgPercent": 97.88346611636048,
+      "CPUPeakPercent": 98.91846921797006,
+      "MemAvgMB": 5042.842903645834,
+      "MemPeakMB": 5532.703125,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T00:18:40.611240921+06:00",
+      "FinishedAt": "2026-09-19T00:18:40.950955458+06:00",
+      "Duration": 339714557,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:18:40.611240921+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33840641360,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:18:40.950955458+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33845721908,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 5080548,
+      "RawEnergyJoules": 5.080548,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 2.646111269363874,
+      "EnergyCorrectedJ": 2.434436730636126,
+      "AveragePowerWatts": 14.955343818251512,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T00:18:40.9511105+06:00",
+      "FinishedAt": "2026-09-19T00:18:40.980519711+06:00",
+      "Duration": 29409211,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:18:40.9511105+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33845721908,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:18:40.980519711+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33846187292,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 465384,
+      "RawEnergyJoules": 0.465384,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 0.2290748013197445,
+      "EnergyCorrectedJ": 0.23630919868025552,
+      "AveragePowerWatts": 15.824429971956745,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T00:18:40.980686245+06:00",
+      "FinishedAt": "2026-09-19T00:18:41.212858939+06:00",
+      "Duration": 232172694,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:18:40.980686245+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33846187292,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:18:41.212858939+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33850180692,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3993400,
+      "RawEnergyJoules": 3.9934,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 1.8084440874636125,
+      "EnergyCorrectedJ": 2.1849559125363873,
+      "AveragePowerWatts": 17.20012776351727,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T00:18:41.715109602+06:00",
+      "FinishedAt": "2026-09-19T00:19:41.715704378+06:00",
+      "Duration": 60000594806,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:18:41.715109602+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33853674683,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:19:41.715704378+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 34271745393,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 418070710,
+      "RawEnergyJoules": 418.07071,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 467.3578061734109,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 6.967776092082897,
+      "CPUAvgPercent": 7.542522747484315,
+      "CPUPeakPercent": 8.993399339933994,
+      "MemAvgMB": 4036.185315148305,
+      "MemPeakMB": 4060.70703125,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:19:51.724526431+06:00",
+      "FinishedAt": "2026-09-19T00:20:52.325033906+06:00",
+      "Duration": 60600507464,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:19:51.724526431+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 34341365801,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:20:52.325033906+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 34897814091,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 556448290,
+      "RawEnergyJoules": 556.44829,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 472.03065757838567,
+      "EnergyCorrectedJ": 84.41763242161437,
+      "AveragePowerWatts": 9.182238124500204,
+      "CPUAvgPercent": 8.26583140407896,
+      "CPUPeakPercent": 9.35960591133005,
+      "MemAvgMB": 4063.5677734375,
+      "MemPeakMB": 4076.25,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:21:02.335087877+06:00",
+      "FinishedAt": "2026-09-19T00:22:02.848119277+06:00",
+      "Duration": 60513031370,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:21:02.335087877+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 34973911092,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:22:02.848119277+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 36369071654,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1395160562,
+      "RawEnergyJoules": 1395.160562,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 471.34928707669906,
+      "EnergyCorrectedJ": 923.811274923301,
+      "AveragePowerWatts": 23.055539119655904,
+      "CPUAvgPercent": 49.71842673026091,
+      "CPUPeakPercent": 51.61023947151115,
+      "MemAvgMB": 4166.711783854166,
+      "MemPeakMB": 4232.01171875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T00:22:12.856550989+06:00",
+      "FinishedAt": "2026-09-19T00:23:13.839448746+06:00",
+      "Duration": 60982897727,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:22:12.856550989+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 36444640469,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:23:13.839448746+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37840288402,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1395647933,
+      "RawEnergyJoules": 1395.647933,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 475.00917929130514,
+      "EnergyCorrectedJ": 920.6387537086948,
+      "AveragePowerWatts": 22.885890717227774,
+      "CPUAvgPercent": 98.02109263336281,
+      "CPUPeakPercent": 99.0008326394671,
+      "MemAvgMB": 5037.917838541666,
+      "MemPeakMB": 5510.39453125,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T00:23:13.8398493+06:00",
+      "FinishedAt": "2026-09-19T00:23:14.173506175+06:00",
+      "Duration": 333656915,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:23:13.8398493+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37840288402,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:23:14.173506175+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37845483995,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 5195593,
+      "RawEnergyJoules": 5.195593,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 2.59892696586059,
+      "EnergyCorrectedJ": 2.59666603413941,
+      "AveragePowerWatts": 15.571662886111621,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "simple-api-scratch",
+      "TrialID": "simple-api-scratch-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-simple-api",
+        "Tag": "scratch",
+        "Digest": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "ID": "sha256:a1575f8207f3aa776d00d08526ca940990bbccba819ddc99f57b508df09fd52d",
+        "SizeBytes": 5546086,
+        "SizeMB": 5.289159774780273,
+        "NumLayers": 1
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T00:23:14.173734444+06:00",
+      "FinishedAt": "2026-09-19T00:23:14.206020122+06:00",
+      "Duration": 32285637,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T00:23:14.173734444+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37845483995,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T00:23:14.206020122+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37846028446,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 544451,
+      "RawEnergyJoules": 0.544451,
+      "BaselinePowerWatts": 7.789219551648104,
+      "BackgroundEnergyJ": 0.2514799149578134,
+      "EnergyCorrectedJ": 0.2929710850421866,
+      "AveragePowerWatts": 16.863566916768594,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "scratch",
+      "Success": true,
+      "Error": ""
+    }
+  ]
+}

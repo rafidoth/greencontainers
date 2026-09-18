@@ -1,6 +1,3 @@
-# Experiment: Simple API on Alpine Linux
-# Tests I/O and memory bound workload across idle, light, medium, and heavy loads.
-
 experiment_id: "simple-api-alpine"
 
 trials: 3
@@ -44,11 +41,11 @@ stages:
     duration: "60s"
     rate: 10000
     threads: 4
-    connections: 25
+    connections: 100
 
   - name: "heavy-load"
     type: "k6"
     duration: "60s"
     rate: 50000
     threads: 4
-    connections: 50
+    connections: 200

@@ -47,7 +47,7 @@
         "Duration": "60s",
         "Rate": 10000,
         "Threads": 4,
-        "Connections": 25,
+        "Connections": 100,
         "ParsedDuration": 60000000000
       },
       {
@@ -56,7 +56,7 @@
         "Duration": "60s",
         "Rate": 50000,
         "Threads": 4,
-        "Connections": 50,
+        "Connections": 200,
         "ParsedDuration": 60000000000
       }
     ],
@@ -77,11 +77,11 @@
   },
   "DockerVer": "29.7.2",
   "Baseline": {
-    "Duration": 60001066781,
-    "EnergyJoules": 111.731984,
-    "PowerWatts": 1.862166624600434,
-    "CPUAvgPercent": 0.603452168315844,
-    "MemAvgMB": 3259.4256510416667
+    "Duration": 60000420015,
+    "EnergyJoules": 404.488771,
+    "PowerWatts": 6.741432324955033,
+    "CPUAvgPercent": 7.406887329598999,
+    "MemAvgMB": 3660.1857123940677
   },
   "Stages": [
     {
@@ -100,39 +100,39 @@
       "Stage": "Pull",
       "StageName": "pull",
       "StageType": "pull",
-      "StartedAt": "2026-09-18T17:46:43.117774842+06:00",
-      "FinishedAt": "2026-09-18T17:46:50.683936455+06:00",
-      "Duration": 7566161613,
+      "StartedAt": "2026-09-18T23:25:14.104087376+06:00",
+      "FinishedAt": "2026-09-18T23:25:31.397816472+06:00",
+      "Duration": 17293729076,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:46:43.117774842+06:00",
+        "Timestamp": "2026-09-18T23:25:14.104087376+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 50690559752,
+            "EnergyMicroJoules": 59498160575,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:46:50.683936455+06:00",
+        "Timestamp": "2026-09-18T23:25:31.397816472+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 50704935839,
+            "EnergyMicroJoules": 59629825015,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 14376087,
-      "RawEnergyJoules": 14.376087,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 14.089453632061586,
-      "EnergyCorrectedJ": 0.2866333679384141,
-      "AveragePowerWatts": 1.9000502150653704,
-      "CPUAvgPercent": 0.9499773822543165,
-      "CPUPeakPercent": 1.4119601328903655,
-      "MemAvgMB": 3267.604910714286,
-      "MemPeakMB": 3268.4609375,
+      "RawEnergyMicroJoules": 131664440,
+      "RawEnergyJoules": 131.66444,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 116.58450421196113,
+      "EnergyCorrectedJ": 15.079935788038881,
+      "AveragePowerWatts": 7.613420993319603,
+      "CPUAvgPercent": 7.577015543185847,
+      "CPUPeakPercent": 9.225700164744646,
+      "MemAvgMB": 3666.424862132353,
+      "MemPeakMB": 3669.19921875,
       "K6Result": null,
       "K6RateTarget": 0,
       "BaseImage": "alpine:latest",
@@ -155,39 +155,39 @@
       "Stage": "Build",
       "StageName": "build",
       "StageType": "build",
-      "StartedAt": "2026-09-18T17:46:50.684085775+06:00",
-      "FinishedAt": "2026-09-18T17:47:05.716631343+06:00",
-      "Duration": 15032545607,
+      "StartedAt": "2026-09-18T23:25:31.397957029+06:00",
+      "FinishedAt": "2026-09-18T23:25:48.942157299+06:00",
+      "Duration": 17544200270,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:46:50.684085775+06:00",
+        "Timestamp": "2026-09-18T23:25:31.397957029+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 50704935839,
+            "EnergyMicroJoules": 59629825015,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:47:05.716631343+06:00",
+        "Timestamp": "2026-09-18T23:25:48.942157299+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 50929909038,
+            "EnergyMicroJoules": 59975537575,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 224973199,
-      "RawEnergyJoules": 224.973199,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 27.99310471213927,
-      "EnergyCorrectedJ": 196.9800942878607,
-      "AveragePowerWatts": 14.965741989516387,
-      "CPUAvgPercent": 32.18317391921559,
-      "CPUPeakPercent": 88.26955074875208,
-      "MemAvgMB": 3384.116666666667,
-      "MemPeakMB": 3631.296875,
+      "RawEnergyMicroJoules": 345712560,
+      "RawEnergyJoules": 345.71256,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 118.27303881566283,
+      "EnergyCorrectedJ": 227.43952118433717,
+      "AveragePowerWatts": 19.705233335209755,
+      "CPUAvgPercent": 41.192052033398625,
+      "CPUPeakPercent": 96.83333333333333,
+      "MemAvgMB": 3777.9145220588234,
+      "MemPeakMB": 3998,
       "K6Result": null,
       "K6RateTarget": 0,
       "BaseImage": "alpine:latest",
@@ -201,44 +201,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Start",
       "StageName": "start",
       "StageType": "start",
-      "StartedAt": "2026-09-18T17:47:05.726909743+06:00",
-      "FinishedAt": "2026-09-18T17:47:05.92334449+06:00",
-      "Duration": 196434787,
+      "StartedAt": "2026-09-18T23:25:48.950624491+06:00",
+      "FinishedAt": "2026-09-18T23:25:49.162077798+06:00",
+      "Duration": 211453347,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:47:05.726909743+06:00",
+        "Timestamp": "2026-09-18T23:25:48.950624491+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 50930002340,
+            "EnergyMicroJoules": 59975717894,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:47:05.92334449+06:00",
+        "Timestamp": "2026-09-18T23:25:49.162077798+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 50931889358,
+            "EnergyMicroJoules": 59979761355,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 1887018,
-      "RawEnergyJoules": 1.887018,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.36579430426189524,
-      "EnergyCorrectedJ": 1.521223695738105,
-      "AveragePowerWatts": 9.606333118583523,
+      "RawEnergyMicroJoules": 4043461,
+      "RawEnergyJoules": 4.043461,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 1.4254984286857335,
+      "EnergyCorrectedJ": 2.6179625713142665,
+      "AveragePowerWatts": 19.122236925386666,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -256,48 +256,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Idle",
       "StageName": "idle",
       "StageType": "idle",
-      "StartedAt": "2026-09-18T17:47:06.427570141+06:00",
-      "FinishedAt": "2026-09-18T17:48:06.42879792+06:00",
-      "Duration": 60001227779,
+      "StartedAt": "2026-09-18T23:25:49.665711413+06:00",
+      "FinishedAt": "2026-09-18T23:26:49.666790278+06:00",
+      "Duration": 60001078865,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:47:06.427570141+06:00",
+        "Timestamp": "2026-09-18T23:25:49.665711413+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 50932805372,
+            "EnergyMicroJoules": 59983912035,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:48:06.42879792+06:00",
+        "Timestamp": "2026-09-18T23:26:49.666790278+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 51034747793,
+            "EnergyMicroJoules": 60420183190,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 101942421,
-      "RawEnergyJoules": 101.942421,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 111.73228380510223,
-      "EnergyCorrectedJ": 0,
-      "AveragePowerWatts": 1.699005583277066,
-      "CPUAvgPercent": 0.5510436593642359,
-      "CPUPeakPercent": 0.9991673605328892,
-      "MemAvgMB": 3263.222126588983,
-      "MemPeakMB": 3319.45703125,
+      "RawEnergyMicroJoules": 436271155,
+      "RawEnergyJoules": 436.271155,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 404.49321259268726,
+      "EnergyCorrectedJ": 31.777942407312764,
+      "AveragePowerWatts": 7.271055175217641,
+      "CPUAvgPercent": 7.476860612997567,
+      "CPUPeakPercent": 9.465020576131687,
+      "MemAvgMB": 3694.5670021186443,
+      "MemPeakMB": 3728.38671875,
       "K6Result": null,
       "K6RateTarget": 0,
       "BaseImage": "alpine:latest",
@@ -311,48 +311,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "light-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:48:16.43741402+06:00",
-      "FinishedAt": "2026-09-18T17:49:17.244094137+06:00",
-      "Duration": 60806680117,
+      "StartedAt": "2026-09-18T23:26:59.675487207+06:00",
+      "FinishedAt": "2026-09-18T23:28:00.191235164+06:00",
+      "Duration": 60515747967,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:48:16.43741402+06:00",
+        "Timestamp": "2026-09-18T23:26:59.675487207+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 51052116463,
+            "EnergyMicroJoules": 60496351553,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:49:17.244094137+06:00",
+        "Timestamp": "2026-09-18T23:28:00.191235164+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 51174916890,
+            "EnergyMicroJoules": 61035617168,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 122800427,
-      "RawEnergyJoules": 122.800427,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 113.23217026663221,
-      "EnergyCorrectedJ": 9.56825673336779,
-      "AveragePowerWatts": 2.019521979554153,
-      "CPUAvgPercent": 2.1102887617863315,
-      "CPUPeakPercent": 2.880658436213992,
-      "MemAvgMB": 3267.281640625,
-      "MemPeakMB": 3275.2890625,
+      "RawEnergyMicroJoules": 539265615,
+      "RawEnergyJoules": 539.265615,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 407.96281951356565,
+      "EnergyCorrectedJ": 131.30279548643438,
+      "AveragePowerWatts": 8.911161691235616,
+      "CPUAvgPercent": 8.618365089423758,
+      "CPUPeakPercent": 10.633116883116884,
+      "MemAvgMB": 3730.6672526041666,
+      "MemPeakMB": 3733.05859375,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -372,48 +372,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "medium-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:49:27.253785388+06:00",
-      "FinishedAt": "2026-09-18T17:50:27.833243709+06:00",
-      "Duration": 60579458321,
+      "StartedAt": "2026-09-18T23:28:10.200548579+06:00",
+      "FinishedAt": "2026-09-18T23:29:10.713185964+06:00",
+      "Duration": 60512637365,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:49:27.253785388+06:00",
+        "Timestamp": "2026-09-18T23:28:10.200548579+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 51187158445,
+            "EnergyMicroJoules": 61108824304,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:50:27.833243709+06:00",
+        "Timestamp": "2026-09-18T23:29:10.713185964+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 52593877140,
+            "EnergyMicroJoules": 62543693414,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 1406718695,
-      "RawEnergyJoules": 1406.718695,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 112.80904542173924,
-      "EnergyCorrectedJ": 1293.9096495782608,
-      "AveragePowerWatts": 23.221051062326154,
-      "CPUAvgPercent": 29.6175142060716,
-      "CPUPeakPercent": 32.64802631578947,
-      "MemAvgMB": 3342.6042317708334,
-      "MemPeakMB": 3400.49609375,
+      "RawEnergyMicroJoules": 1434869110,
+      "RawEnergyJoules": 1434.86911,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 407.94184960069276,
+      "EnergyCorrectedJ": 1026.9272603993072,
+      "AveragePowerWatts": 23.711891804436807,
+      "CPUAvgPercent": 47.13035241425068,
+      "CPUPeakPercent": 51.158940397350996,
+      "MemAvgMB": 3832.130859375,
+      "MemPeakMB": 3892.1796875,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -433,48 +433,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "heavy-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:50:37.834473531+06:00",
-      "FinishedAt": "2026-09-18T17:51:38.954465905+06:00",
-      "Duration": 61119992605,
+      "StartedAt": "2026-09-18T23:29:20.722547611+06:00",
+      "FinishedAt": "2026-09-18T23:30:21.689544626+06:00",
+      "Duration": 60966997015,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:50:37.834473531+06:00",
+        "Timestamp": "2026-09-18T23:29:20.722547611+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 52606189567,
+            "EnergyMicroJoules": 62620852723,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:51:38.954465905+06:00",
+        "Timestamp": "2026-09-18T23:30:21.689544626+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54036008142,
+            "EnergyMicroJoules": 64025027131,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 1429818575,
-      "RawEnergyJoules": 1429.818575,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 113.81561032485634,
-      "EnergyCorrectedJ": 1316.0029646751436,
-      "AveragePowerWatts": 23.39363134810052,
-      "CPUAvgPercent": 97.54741286817531,
-      "CPUPeakPercent": 99.66638865721434,
-      "MemAvgMB": 4513.718557889344,
-      "MemPeakMB": 5175.375,
+      "RawEnergyMicroJoules": 1404174408,
+      "RawEnergyJoules": 1404.174408,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 411.004884432358,
+      "EnergyCorrectedJ": 993.169523567642,
+      "AveragePowerWatts": 23.03171349664023,
+      "CPUAvgPercent": 97.84914605613176,
+      "CPUPeakPercent": 99.16666666666667,
+      "MemAvgMB": 4703.514453125,
+      "MemPeakMB": 5181.20703125,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -494,44 +494,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Stop",
       "StageName": "stop",
       "StageType": "stop",
-      "StartedAt": "2026-09-18T17:51:38.954613482+06:00",
-      "FinishedAt": "2026-09-18T17:51:39.306911171+06:00",
-      "Duration": 352297729,
+      "StartedAt": "2026-09-18T23:30:21.689817503+06:00",
+      "FinishedAt": "2026-09-18T23:30:22.020335234+06:00",
+      "Duration": 330517731,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:51:38.954613482+06:00",
+        "Timestamp": "2026-09-18T23:30:21.689817503+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54036008142,
+            "EnergyMicroJoules": 64025052277,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:51:39.306911171+06:00",
+        "Timestamp": "2026-09-18T23:30:22.020335234+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54038763737,
+            "EnergyMicroJoules": 64030328523,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 2755595,
-      "RawEnergyJoules": 2.755595,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.6560370728663284,
-      "EnergyCorrectedJ": 2.0995579271336715,
-      "AveragePowerWatts": 7.821779061198547,
+      "RawEnergyMicroJoules": 5276246,
+      "RawEnergyJoules": 5.276246,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 2.2281629157341922,
+      "EnergyCorrectedJ": 3.048083084265808,
+      "AveragePowerWatts": 15.963579273149497,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -549,44 +549,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Cleanup",
       "StageName": "cleanup",
       "StageType": "cleanup",
-      "StartedAt": "2026-09-18T17:51:39.307083745+06:00",
-      "FinishedAt": "2026-09-18T17:51:39.336293963+06:00",
-      "Duration": 29210238,
+      "StartedAt": "2026-09-18T23:30:22.02060243+06:00",
+      "FinishedAt": "2026-09-18T23:30:22.050265438+06:00",
+      "Duration": 29663008,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:51:39.307083745+06:00",
+        "Timestamp": "2026-09-18T23:30:22.02060243+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54038763737,
+            "EnergyMicroJoules": 64030328523,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:51:39.336293963+06:00",
+        "Timestamp": "2026-09-18T23:30:22.050265438+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54038933009,
+            "EnergyMicroJoules": 64030858388,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 169272,
-      "RawEnergyJoules": 0.169272,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.054394330300235334,
-      "EnergyCorrectedJ": 0.11487766969976468,
-      "AveragePowerWatts": 5.794954495064368,
+      "RawEnergyMicroJoules": 529865,
+      "RawEnergyJoules": 0.529865,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 0.19997116098659976,
+      "EnergyCorrectedJ": 0.3298938390134003,
+      "AveragePowerWatts": 17.8628209249716,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -604,44 +604,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Start",
       "StageName": "start",
       "StageType": "start",
-      "StartedAt": "2026-09-18T17:51:39.33647319+06:00",
-      "FinishedAt": "2026-09-18T17:51:39.534960773+06:00",
-      "Duration": 198487593,
+      "StartedAt": "2026-09-18T23:30:22.050378402+06:00",
+      "FinishedAt": "2026-09-18T23:30:22.287583362+06:00",
+      "Duration": 237204960,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:51:39.33647319+06:00",
+        "Timestamp": "2026-09-18T23:30:22.050378402+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54038933009,
+            "EnergyMicroJoules": 64030874119,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:51:39.534960773+06:00",
+        "Timestamp": "2026-09-18T23:30:22.287583362+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54041217818,
+            "EnergyMicroJoules": 64035202966,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 2284809,
-      "RawEnergyJoules": 2.284809,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.36961697108187475,
-      "EnergyCorrectedJ": 1.9151920289181255,
-      "AveragePowerWatts": 11.511092282730237,
+      "RawEnergyMicroJoules": 4328847,
+      "RawEnergyJoules": 4.328847,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 1.5991011849836656,
+      "EnergyCorrectedJ": 2.729745815016334,
+      "AveragePowerWatts": 18.249394953629974,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -659,48 +659,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Idle",
       "StageName": "idle",
       "StageType": "idle",
-      "StartedAt": "2026-09-18T17:51:40.037350021+06:00",
-      "FinishedAt": "2026-09-18T17:52:40.038188606+06:00",
-      "Duration": 60000838584,
+      "StartedAt": "2026-09-18T23:30:22.790848852+06:00",
+      "FinishedAt": "2026-09-18T23:31:22.791569627+06:00",
+      "Duration": 60000720735,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:51:40.037350021+06:00",
+        "Timestamp": "2026-09-18T23:30:22.790848852+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54042023090,
+            "EnergyMicroJoules": 64040943438,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:52:40.038188606+06:00",
+        "Timestamp": "2026-09-18T23:31:22.791569627+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54112974041,
+            "EnergyMicroJoules": 64477707151,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 70950951,
-      "RawEnergyJoules": 70.950951,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 111.73155905916276,
-      "EnergyCorrectedJ": 0,
-      "AveragePowerWatts": 1.1824993229164633,
-      "CPUAvgPercent": 0.49717317957464646,
-      "CPUPeakPercent": 0.914380714879468,
-      "MemAvgMB": 3261.5600503177966,
-      "MemPeakMB": 3283.76171875,
+      "RawEnergyMicroJoules": 436763713,
+      "RawEnergyJoules": 436.763713,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 404.4907982835287,
+      "EnergyCorrectedJ": 32.27291471647129,
+      "AveragePowerWatts": 7.279307775801836,
+      "CPUAvgPercent": 7.362565735834382,
+      "CPUPeakPercent": 8.161582852431987,
+      "MemAvgMB": 3708.685315148305,
+      "MemPeakMB": 3726.50390625,
       "K6Result": null,
       "K6RateTarget": 0,
       "BaseImage": "alpine:latest",
@@ -714,48 +714,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "light-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:52:50.046711748+06:00",
-      "FinishedAt": "2026-09-18T17:53:50.566822536+06:00",
-      "Duration": 60520110758,
+      "StartedAt": "2026-09-18T23:31:32.800598511+06:00",
+      "FinishedAt": "2026-09-18T23:32:33.300807378+06:00",
+      "Duration": 60500208857,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:52:50.046711748+06:00",
+        "Timestamp": "2026-09-18T23:31:32.800598511+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54125796101,
+            "EnergyMicroJoules": 64547750023,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:53:50.566822536+06:00",
+        "Timestamp": "2026-09-18T23:32:33.300807378+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54230660490,
+            "EnergyMicroJoules": 65077510209,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 104864389,
-      "RawEnergyJoules": 104.864389,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 112.69853037066927,
-      "EnergyCorrectedJ": 0,
-      "AveragePowerWatts": 1.7327197139363835,
-      "CPUAvgPercent": 1.9989224780718375,
-      "CPUPeakPercent": 2.6315789473684212,
-      "MemAvgMB": 3276.7796875,
-      "MemPeakMB": 3280.83203125,
+      "RawEnergyMicroJoules": 529760186,
+      "RawEnergyJoules": 529.760186,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 407.8580636551106,
+      "EnergyCorrectedJ": 121.90212234488939,
+      "AveragePowerWatts": 8.756336482278204,
+      "CPUAvgPercent": 8.44769328394357,
+      "CPUPeakPercent": 9.893704006541292,
+      "MemAvgMB": 3736.0934244791665,
+      "MemPeakMB": 3740.9765625,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -775,48 +775,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "medium-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:54:00.576313839+06:00",
-      "FinishedAt": "2026-09-18T17:55:01.117607539+06:00",
-      "Duration": 60541293680,
+      "StartedAt": "2026-09-18T23:32:43.309472396+06:00",
+      "FinishedAt": "2026-09-18T23:33:43.868447092+06:00",
+      "Duration": 60558974686,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:54:00.576313839+06:00",
+        "Timestamp": "2026-09-18T23:32:43.309472396+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 54243224248,
+            "EnergyMicroJoules": 65148605821,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:55:01.117607539+06:00",
+        "Timestamp": "2026-09-18T23:33:43.868447092+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 55652388068,
+            "EnergyMicroJoules": 1006078067,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 1409163820,
-      "RawEnergyJoules": 1409.16382,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 112.7379765010292,
-      "EnergyCorrectedJ": 1296.4258434989708,
-      "AveragePowerWatts": 23.276077109424595,
-      "CPUAvgPercent": 27.771491533337684,
-      "CPUPeakPercent": 29.098360655737704,
-      "MemAvgMB": 3362.1018229166666,
-      "MemPeakMB": 3432.6484375,
+      "RawEnergyMicroJoules": 1390083233,
+      "RawEnergyJoules": 1390.083233,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 408.254229514334,
+      "EnergyCorrectedJ": 981.8290034856661,
+      "AveragePowerWatts": 22.95420687367349,
+      "CPUAvgPercent": 47.583549727244936,
+      "CPUPeakPercent": 49.257425742574256,
+      "MemAvgMB": 3839.0856770833334,
+      "MemPeakMB": 3898.484375,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -836,48 +836,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "heavy-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:55:11.123330523+06:00",
-      "FinishedAt": "2026-09-18T17:56:12.242307386+06:00",
-      "Duration": 61118976834,
+      "StartedAt": "2026-09-18T23:33:53.869038821+06:00",
+      "FinishedAt": "2026-09-18T23:34:54.947445574+06:00",
+      "Duration": 61078406733,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:55:11.123330523+06:00",
+        "Timestamp": "2026-09-18T23:33:53.869038821+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 55665332665,
+            "EnergyMicroJoules": 1078186154,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:56:12.242307386+06:00",
+        "Timestamp": "2026-09-18T23:34:54.947445574+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57061030384,
+            "EnergyMicroJoules": 2442339866,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 1395697719,
-      "RawEnergyJoules": 1395.697719,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 113.8137187900019,
-      "EnergyCorrectedJ": 1281.884000209998,
-      "AveragePowerWatts": 22.835750716029402,
-      "CPUAvgPercent": 97.5159465343438,
-      "CPUPeakPercent": 99.66777408637874,
-      "MemAvgMB": 4501.241226946721,
-      "MemPeakMB": 5174.1953125,
+      "RawEnergyMicroJoules": 1364153712,
+      "RawEnergyJoules": 1364.153712,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 411.75594550659736,
+      "EnergyCorrectedJ": 952.3977664934027,
+      "AveragePowerWatts": 22.334467858064848,
+      "CPUAvgPercent": 96.47082102598443,
+      "CPUPeakPercent": 99.07949790794979,
+      "MemAvgMB": 4722.015881147541,
+      "MemPeakMB": 5208.703125,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -897,44 +897,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Stop",
       "StageName": "stop",
       "StageType": "stop",
-      "StartedAt": "2026-09-18T17:56:12.242406653+06:00",
-      "FinishedAt": "2026-09-18T17:56:12.622313601+06:00",
-      "Duration": 379906948,
+      "StartedAt": "2026-09-18T23:34:54.947589546+06:00",
+      "FinishedAt": "2026-09-18T23:34:55.300945898+06:00",
+      "Duration": 353356372,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:56:12.242406653+06:00",
+        "Timestamp": "2026-09-18T23:34:54.947589546+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57061030384,
+            "EnergyMicroJoules": 2442339866,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:56:12.622313601+06:00",
+        "Timestamp": "2026-09-18T23:34:55.300945898+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57063788405,
+            "EnergyMicroJoules": 2447625970,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 2758021,
-      "RawEnergyJoules": 2.758021,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.7074500390194126,
-      "EnergyCorrectedJ": 2.050570960980587,
-      "AveragePowerWatts": 7.2597277162722476,
+      "RawEnergyMicroJoules": 5286104,
+      "RawEnergyJoules": 5.286104,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 2.3821280684296355,
+      "EnergyCorrectedJ": 2.9039759315703644,
+      "AveragePowerWatts": 14.959696269464756,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -952,44 +952,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Cleanup",
       "StageName": "cleanup",
       "StageType": "cleanup",
-      "StartedAt": "2026-09-18T17:56:12.622469825+06:00",
-      "FinishedAt": "2026-09-18T17:56:12.651847477+06:00",
-      "Duration": 29377642,
+      "StartedAt": "2026-09-18T23:34:55.301107093+06:00",
+      "FinishedAt": "2026-09-18T23:34:55.327713668+06:00",
+      "Duration": 26606585,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:56:12.622469825+06:00",
+        "Timestamp": "2026-09-18T23:34:55.301107093+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57063788405,
+            "EnergyMicroJoules": 2447625970,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:56:12.651847477+06:00",
+        "Timestamp": "2026-09-18T23:34:55.327713668+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57063924476,
+            "EnergyMicroJoules": 2448068177,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 136071,
-      "RawEnergyJoules": 0.136071,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.05470606444185994,
-      "EnergyCorrectedJ": 0.08136493555814006,
-      "AveragePowerWatts": 4.631787670365103,
+      "RawEnergyMicroJoules": 442207,
+      "RawEnergyJoules": 0.442207,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 0.1793664921756637,
+      "EnergyCorrectedJ": 0.2628405078243363,
+      "AveragePowerWatts": 16.620208869345692,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -1007,44 +1007,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Start",
       "StageName": "start",
       "StageType": "start",
-      "StartedAt": "2026-09-18T17:56:12.651956792+06:00",
-      "FinishedAt": "2026-09-18T17:56:12.879217391+06:00",
-      "Duration": 227260599,
+      "StartedAt": "2026-09-18T23:34:55.32788973+06:00",
+      "FinishedAt": "2026-09-18T23:34:55.541736328+06:00",
+      "Duration": 213846598,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:56:12.651956792+06:00",
+        "Timestamp": "2026-09-18T23:34:55.32788973+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57063924476,
+            "EnergyMicroJoules": 2448068177,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:56:12.879217391+06:00",
+        "Timestamp": "2026-09-18T23:34:55.541736328+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57066031270,
+            "EnergyMicroJoules": 2451698559,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 2106794,
-      "RawEnergyJoules": 2.106794,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.42319710254450277,
-      "EnergyCorrectedJ": 1.6835968974554971,
-      "AveragePowerWatts": 9.27038830870986,
+      "RawEnergyMicroJoules": 3630382,
+      "RawEnergyJoules": 3.630382,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 1.4416323683388643,
+      "EnergyCorrectedJ": 2.1887496316611355,
+      "AveragePowerWatts": 16.976571214848132,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -1062,48 +1062,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Idle",
       "StageName": "idle",
       "StageType": "idle",
-      "StartedAt": "2026-09-18T17:56:13.382175457+06:00",
-      "FinishedAt": "2026-09-18T17:57:13.383288291+06:00",
-      "Duration": 60001112863,
+      "StartedAt": "2026-09-18T23:34:56.043438576+06:00",
+      "FinishedAt": "2026-09-18T23:35:56.044709309+06:00",
+      "Duration": 60001270743,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:56:13.382175457+06:00",
+        "Timestamp": "2026-09-18T23:34:56.043438576+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57066673205,
+            "EnergyMicroJoules": 2455374150,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:57:13.383288291+06:00",
+        "Timestamp": "2026-09-18T23:35:56.044709309+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57133794154,
+            "EnergyMicroJoules": 2839509253,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 67120949,
-      "RawEnergyJoules": 67.120949,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 111.7320698123624,
+      "RawEnergyMicroJoules": 384135103,
+      "RawEnergyJoules": 384.135103,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 404.4945061252389,
       "EnergyCorrectedJ": 0,
-      "AveragePowerWatts": 1.118661734712432,
-      "CPUAvgPercent": 0.5077606485934267,
-      "CPUPeakPercent": 0.9966777408637874,
-      "MemAvgMB": 3279.5076138771187,
-      "MemPeakMB": 3356.0234375,
+      "AveragePowerWatts": 6.40211612592913,
+      "CPUAvgPercent": 7.322435065884524,
+      "CPUPeakPercent": 8.244023083264633,
+      "MemAvgMB": 3701.5792317708333,
+      "MemPeakMB": 3713.9140625,
       "K6Result": null,
       "K6RateTarget": 0,
       "BaseImage": "alpine:latest",
@@ -1117,48 +1117,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "light-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:57:23.392482741+06:00",
-      "FinishedAt": "2026-09-18T17:58:23.936661306+06:00",
-      "Duration": 60544178565,
+      "StartedAt": "2026-09-18T23:36:06.053993515+06:00",
+      "FinishedAt": "2026-09-18T23:37:06.558845067+06:00",
+      "Duration": 60504851722,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:57:23.392482741+06:00",
+        "Timestamp": "2026-09-18T23:36:06.053993515+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57144481666,
+            "EnergyMicroJoules": 2918017491,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:58:23.936661306+06:00",
+        "Timestamp": "2026-09-18T23:37:06.558845067+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57247020735,
+            "EnergyMicroJoules": 3427162395,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 102539069,
-      "RawEnergyJoules": 102.539069,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 112.743348637592,
-      "EnergyCorrectedJ": 0,
-      "AveragePowerWatts": 1.693623919431237,
-      "CPUAvgPercent": 1.8830501992541309,
-      "CPUPeakPercent": 2.559867877786953,
-      "MemAvgMB": 3287.6891276041665,
-      "MemPeakMB": 3292.015625,
+      "RawEnergyMicroJoules": 509144904,
+      "RawEnergyJoules": 509.144904,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 407.889363215302,
+      "EnergyCorrectedJ": 101.25554078469798,
+      "AveragePowerWatts": 8.414943422047447,
+      "CPUAvgPercent": 8.391140503492302,
+      "CPUPeakPercent": 13.584288052373159,
+      "MemAvgMB": 3733.9893880208333,
+      "MemPeakMB": 3746.6328125,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -1178,48 +1178,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "medium-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:58:33.946185895+06:00",
-      "FinishedAt": "2026-09-18T17:59:34.538165073+06:00",
-      "Duration": 60591979138,
+      "StartedAt": "2026-09-18T23:37:16.568083932+06:00",
+      "FinishedAt": "2026-09-18T23:38:17.079839754+06:00",
+      "Duration": 60511755802,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:58:33.946185895+06:00",
+        "Timestamp": "2026-09-18T23:37:16.568083932+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 57257915085,
+            "EnergyMicroJoules": 3498235609,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T17:59:34.538165073+06:00",
+        "Timestamp": "2026-09-18T23:38:17.079839754+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 58652950927,
+            "EnergyMicroJoules": 4899502467,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 1395035842,
-      "RawEnergyJoules": 1395.035842,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 112.83236126926937,
-      "EnergyCorrectedJ": 1282.2034807307307,
-      "AveragePowerWatts": 23.023440756453343,
-      "CPUAvgPercent": 30.10238632017847,
-      "CPUPeakPercent": 31.69129720853859,
-      "MemAvgMB": 3373.455533854167,
-      "MemPeakMB": 3435.75390625,
+      "RawEnergyMicroJoules": 1401266858,
+      "RawEnergyJoules": 1401.266858,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 407.9359066033881,
+      "EnergyCorrectedJ": 993.3309513966119,
+      "AveragePowerWatts": 23.156936027192355,
+      "CPUAvgPercent": 48.271140561008025,
+      "CPUPeakPercent": 50.04128819157721,
+      "MemAvgMB": 3838.873111979167,
+      "MemPeakMB": 3900.26953125,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -1239,48 +1239,48 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Workload",
       "StageName": "heavy-load",
       "StageType": "k6",
-      "StartedAt": "2026-09-18T17:59:44.547724914+06:00",
-      "FinishedAt": "2026-09-18T18:00:45.684481979+06:00",
-      "Duration": 61136757025,
+      "StartedAt": "2026-09-18T23:38:27.088591552+06:00",
+      "FinishedAt": "2026-09-18T23:39:28.067203661+06:00",
+      "Duration": 60978612109,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T17:59:44.547724914+06:00",
+        "Timestamp": "2026-09-18T23:38:27.088591552+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 58664270258,
+            "EnergyMicroJoules": 4972510639,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T18:00:45.684481979+06:00",
+        "Timestamp": "2026-09-18T23:39:28.067203661+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 60041671713,
+            "EnergyMicroJoules": 6354260441,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 1377401455,
-      "RawEnergyJoules": 1377.401455,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 113.84682846826112,
-      "EnergyCorrectedJ": 1263.554626531739,
-      "AveragePowerWatts": 22.52984165379845,
-      "CPUAvgPercent": 97.4315827196175,
-      "CPUPeakPercent": 99.83291562238931,
-      "MemAvgMB": 4508.010950307377,
-      "MemPeakMB": 5176.4609375,
+      "RawEnergyMicroJoules": 1381749802,
+      "RawEnergyJoules": 1381.749802,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 411.083186802507,
+      "EnergyCorrectedJ": 970.666615197493,
+      "AveragePowerWatts": 22.659581027034623,
+      "CPUAvgPercent": 97.52438256846492,
+      "CPUPeakPercent": 98.83333333333333,
+      "MemAvgMB": 4664.683463541666,
+      "MemPeakMB": 5136.82421875,
       "K6Result": {
         "avg_latency_ms": 0,
         "p95_latency_ms": 0,
@@ -1300,44 +1300,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Stop",
       "StageName": "stop",
       "StageType": "stop",
-      "StartedAt": "2026-09-18T18:00:45.684587226+06:00",
-      "FinishedAt": "2026-09-18T18:00:46.068812777+06:00",
-      "Duration": 384225561,
+      "StartedAt": "2026-09-18T23:39:28.067291206+06:00",
+      "FinishedAt": "2026-09-18T23:39:28.916849861+06:00",
+      "Duration": 849558695,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T18:00:45.684587226+06:00",
+        "Timestamp": "2026-09-18T23:39:28.067291206+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 60041671713,
+            "EnergyMicroJoules": 6354260441,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T18:00:46.068812777+06:00",
+        "Timestamp": "2026-09-18T23:39:28.916849861+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 60044291908,
+            "EnergyMicroJoules": 6363788284,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 2620195,
-      "RawEnergyJoules": 2.620195,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.7154920160125782,
-      "EnergyCorrectedJ": 1.9047029839874217,
-      "AveragePowerWatts": 6.81941876324048,
+      "RawEnergyMicroJoules": 9527843,
+      "RawEnergyJoules": 9.527843,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 5.727242448419614,
+      "EnergyCorrectedJ": 3.800600551580387,
+      "AveragePowerWatts": 11.215049714722772,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,
@@ -1355,44 +1355,44 @@
       "ImageMetadata": {
         "Name": "green-simple-api",
         "Tag": "alpine",
-        "Digest": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "ID": "sha256:fba5d2629446f5c4e8efb85e4cf3b9cb999d90872045632414940ba28a311a2c",
-        "SizeBytes": 9396416,
-        "SizeMB": 8.96112060546875,
+        "Digest": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "ID": "sha256:3616fb0371ed114b05330bb6de33a8b18021c2ecb37ceb8172d5389ebd3f14c9",
+        "SizeBytes": 9396417,
+        "SizeMB": 8.961121559143066,
         "NumLayers": 2
       },
       "Stage": "Cleanup",
       "StageName": "cleanup",
       "StageType": "cleanup",
-      "StartedAt": "2026-09-18T18:00:46.068916713+06:00",
-      "FinishedAt": "2026-09-18T18:00:46.098620979+06:00",
-      "Duration": 29704256,
+      "StartedAt": "2026-09-18T23:39:28.917080796+06:00",
+      "FinishedAt": "2026-09-18T23:39:29.17456726+06:00",
+      "Duration": 257486424,
       "RAPLBefore": {
-        "Timestamp": "2026-09-18T18:00:46.068916713+06:00",
+        "Timestamp": "2026-09-18T23:39:28.917080796+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 60044291908,
+            "EnergyMicroJoules": 6363788284,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
       "RAPLAfter": {
-        "Timestamp": "2026-09-18T18:00:46.098620979+06:00",
+        "Timestamp": "2026-09-18T23:39:29.17456726+06:00",
         "Domains": {
           "intel-rapl:0": {
             "ID": "intel-rapl:0",
-            "EnergyMicroJoules": 60044445007,
+            "EnergyMicroJoules": 6366147171,
             "MaxEnergyRangeUJ": 65532610987
           }
         }
       },
-      "RawEnergyMicroJoules": 153099,
-      "RawEnergyJoules": 0.153099,
-      "BaselinePowerWatts": 1.862166624600434,
-      "BackgroundEnergyJ": 0.05531427413178719,
-      "EnergyCorrectedJ": 0.09778472586821282,
-      "AveragePowerWatts": 5.154109902634828,
+      "RawEnergyMicroJoules": 2358887,
+      "RawEnergyJoules": 2.358887,
+      "BaselinePowerWatts": 6.741432324955033,
+      "BackgroundEnergyJ": 1.7358273019906774,
+      "EnergyCorrectedJ": 0.6230596980093228,
+      "AveragePowerWatts": 9.161209213888498,
       "CPUAvgPercent": 0,
       "CPUPeakPercent": 0,
       "MemAvgMB": 0,

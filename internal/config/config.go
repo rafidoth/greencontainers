@@ -8,7 +8,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-// Config represents the full experiment configuration parsed from a YAML file.
 type Config struct {
 	ExperimentID string       `yaml:"experiment_id"`
 	Trials       int          `yaml:"trials"`
@@ -19,16 +18,13 @@ type Config struct {
 	Cooldown     string       `yaml:"cooldown"`
 	Stages       []StageCfg   `yaml:"stages"`
 
-	// Parsed durations (populated after loading)
 	CooldownDuration         time.Duration `yaml:"-"`
 	BaselineDuration         time.Duration `yaml:"-"`
 	EnableBaselineCorrection bool          `yaml:"-"`
 
-	// System monitoring intervals (hardcoded defaults)
 	CPUSamplingInterval    time.Duration `yaml:"-"`
 	MemorySamplingInterval time.Duration `yaml:"-"`
 
-	// Legacy fields kept for backward compatibility with the old CLI flow
 	Images           []string      `yaml:"-"`
 	IdleDuration     time.Duration `yaml:"-"`
 	OutputDirectory  string        `yaml:"output_directory"`
@@ -70,11 +66,9 @@ type StageCfg struct {
 	Threads     int    `yaml:"threads,omitempty"`
 	Connections int    `yaml:"connections,omitempty"`
 
-	// Parsed duration (populated after loading)
 	ParsedDuration time.Duration `yaml:"-"`
 }
 
-// LoadFromFile reads and parses a YAML experiment config file.
 func LoadFromFile(path string) (Config, error) {
 	data, err := os.ReadFile(path)
 	if err != nil {
@@ -86,7 +80,6 @@ func LoadFromFile(path string) (Config, error) {
 		return Config{}, fmt.Errorf("failed to parse config YAML: %w", err)
 	}
 
-	// Apply defaults
 	if cfg.Trials <= 0 {
 		cfg.Trials = 1
 	}
@@ -94,7 +87,6 @@ func LoadFromFile(path string) (Config, error) {
 		cfg.OutputDirectory = "./results"
 	}
 
-	// Parse durations
 	if cfg.Baseline.Duration != "" {
 		cfg.BaselineDuration, err = time.ParseDuration(cfg.Baseline.Duration)
 		if err != nil {
@@ -122,7 +114,6 @@ func LoadFromFile(path string) (Config, error) {
 				return Config{}, fmt.Errorf("invalid stage %q duration %q: %w", cfg.Stages[i].Name, cfg.Stages[i].Duration, err)
 			}
 		}
-		// Default k6 threads and connections
 		if cfg.Stages[i].Type == "k6" {
 			if cfg.Stages[i].Threads <= 0 {
 				cfg.Stages[i].Threads = 2
@@ -133,15 +124,12 @@ func LoadFromFile(path string) (Config, error) {
 		}
 	}
 
-	// Hardcoded monitoring intervals
 	cfg.CPUSamplingInterval = 1 * time.Second
 	cfg.MemorySamplingInterval = 1 * time.Second
 
 	return cfg, nil
 }
 
-// DefaultConfig returns a minimal default config for backward compatibility
-// with the old CLI-based flow (no YAML file).
 func DefaultConfig() Config {
 	return Config{
 		Trials:                   1,

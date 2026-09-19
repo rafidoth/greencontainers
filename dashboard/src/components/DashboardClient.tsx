@@ -13,33 +13,65 @@ import {
 } from "recharts";
 import { Activity, Zap, Cpu, MemoryStick, Box } from "lucide-react";
 
-export default function DashboardClient({ experiments }: { experiments: any[] }) {
-  const [selectedMetric, setSelectedMetric] = useState("EnergyCorrectedJ");
+import { useRouter } from 'next/navigation';
+
+export default function DashboardClient({
+  experiments,
+}: {
+  experiments: any[];
+}) {
+  const router = useRouter();
+  const [selectedMetric, setSelectedMetric] = useState("energy");
+  const [selectedWorkload, setSelectedWorkload] = useState("all");
 
   if (experiments.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-64 text-gray-500">
         <Activity className="w-12 h-12 mb-4 text-gray-300" />
-        <p className="text-lg">No experiment results found in ./results directory.</p>
+        <p className="text-lg">
+          No experiment results found in ./results directory.
+        </p>
       </div>
     );
   }
 
+  const availableWorkloads = Array.from(
+    new Set(
+      experiments.map((exp) => {
+        if (exp.Config?.Build?.Context) {
+          const parts = exp.Config.Build.Context.split("/");
+          return parts[parts.length - 1];
+        }
+        return "unknown";
+      }),
+    ),
+  ).filter((w) => w !== "unknown");
+
   // Flatten stages for charting
-  const flatStages = experiments.flatMap((exp) =>
-    exp.Stages.map((stage: any) => ({
-      ...stage,
-      baseImage: stage.BaseImage || exp.Config?.Build?.BaseImage || "unknown",
-      stageName: stage.StageName || stage.Stage,
-      trialNum: stage.TrialNumber,
-      energy: stage.EnergyCorrectedJ || stage.RawEnergyJoules,
-      power: stage.AveragePowerWatts,
-      cpu: stage.CPUAvgPercent,
-      memory: stage.MemAvgMB,
-      latency: stage.K6Result ? stage.K6Result.avg_latency_ms : 0,
-      throughput: stage.K6Result ? stage.K6Result.throughput_rps : 0,
-    }))
-  );
+  const flatStages = experiments
+    .filter((exp) => {
+      if (selectedWorkload === "all") return true;
+      if (exp.Config?.Build?.Context) {
+        const parts = exp.Config.Build.Context.split("/");
+        const workload = parts[parts.length - 1];
+        return workload === selectedWorkload;
+      }
+      return false;
+    })
+    .flatMap((exp) =>
+      exp.Stages.map((stage: any) => ({
+        ...stage,
+        baseImage: stage.BaseImage || exp.Config?.Build?.BaseImage || "unknown",
+        stageName: stage.StageName || stage.Stage,
+        trialNum: stage.TrialNumber,
+        energy: stage.EnergyCorrectedJ || stage.RawEnergyJoules,
+        power: stage.AveragePowerWatts,
+        cpu: stage.CPUAvgPercent,
+        memory: stage.MemAvgMB,
+        latency: stage.K6Result ? stage.K6Result.avg_latency_ms : 0,
+        throughput: stage.K6Result ? stage.K6Result.throughput_rps : 0,
+      })),
+    );
 
   const LIFECYCLE_TYPES = ["build", "start", "stop", "cleanup", "pull"];
 
@@ -110,7 +142,9 @@ export default function DashboardClient({ experiments }: { experiments: any[] })
 
   const workloadData = aggregateData(false);
   const lifecycleData = aggregateData(true);
-  const baseImages = Array.from(new Set(flatStages.map((s: any) => s.baseImage)));
+  const baseImages = Array.from(
+    new Set(flatStages.map((s: any) => s.baseImage)),
+  );
   const colors = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"];
 
   const metrics = [
@@ -130,10 +164,29 @@ export default function DashboardClient({ experiments }: { experiments: any[] })
               Green Containers Dashboard
             </h1>
             <p className="text-gray-500 mt-2">
-              Showing aggregated results across {experiments.length} experiments and {flatStages.length} stages.
+              Showing aggregated results across {experiments.length} experiments
             </p>
           </div>
         </header>
+
+        {/* Workload Selector */}
+        <div className="mb-8 bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-4">
+          <label className="font-semibold text-gray-700">
+            Filter by Workload:
+          </label>
+          <select
+            value={selectedWorkload}
+            onChange={(e) => setSelectedWorkload(e.target.value)}
+            className="border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 px-4 py-2"
+          >
+            <option value="all">All Workloads (Averaged)</option>
+            {availableWorkloads.map((w) => (
+              <option key={w} value={w}>
+                {w}
+              </option>
+            ))}
+          </select>
+        </div>
 
         {/* Metric Selector */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -150,8 +203,12 @@ export default function DashboardClient({ experiments }: { experiments: any[] })
                     : "bg-white border-gray-200 text-gray-600 hover:border-green-300 hover:bg-green-50"
                 }`}
               >
-                <Icon className={`w-6 h-6 ${isSelected ? "text-green-500" : "text-gray-400"}`} />
-                <span className="text-sm font-medium text-center">{m.label}</span>
+                <Icon
+                  className={`w-6 h-6 ${isSelected ? "text-green-500" : "text-gray-400"}`}
+                />
+                <span className="text-sm font-medium text-center">
+                  {m.label}
+                </span>
               </button>
             );
           })}
@@ -166,14 +223,45 @@ export default function DashboardClient({ experiments }: { experiments: any[] })
             </h2>
             <div className="h-80 w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={workloadData} margin={{ top: 20, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-                  <XAxis dataKey="stage" axisLine={false} tickLine={false} tick={{ fill: "#6b7280" }} dy={10} />
-                  <YAxis axisLine={false} tickLine={false} tick={{ fill: "#6b7280" }} />
-                  <Tooltip cursor={{ fill: "#f3f4f6" }} contentStyle={{ borderRadius: "8px", border: "none", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" }} />
+                <BarChart
+                  data={workloadData}
+                  margin={{ top: 20, right: 10, left: 0, bottom: 5 }}
+                >
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    vertical={false}
+                    stroke="#e5e7eb"
+                  />
+                  <XAxis
+                    dataKey="stage"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: "#6b7280" }}
+                    dy={10}
+                  />
+                  <YAxis
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: "#6b7280" }}
+                  />
+                  <Tooltip
+                    cursor={{ fill: "#f3f4f6" }}
+                    contentStyle={{
+                      borderRadius: "8px",
+                      border: "none",
+                      boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                    }}
+                  />
                   <Legend wrapperStyle={{ paddingTop: "20px" }} />
                   {baseImages.map((img, i) => (
-                    <Bar key={img} dataKey={`${img}_${selectedMetric}`} name={img as string} fill={colors[i % colors.length]} radius={[4, 4, 0, 0]} maxBarSize={40} />
+                    <Bar
+                      key={img}
+                      dataKey={`${img}_${selectedMetric}`}
+                      name={img as string}
+                      fill={colors[i % colors.length]}
+                      radius={[4, 4, 0, 0]}
+                      maxBarSize={40}
+                    />
                   ))}
                 </BarChart>
               </ResponsiveContainer>
@@ -188,19 +276,53 @@ export default function DashboardClient({ experiments }: { experiments: any[] })
             </h2>
             <div className="h-80 w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={lifecycleData} margin={{ top: 20, right: 10, left: 0, bottom: 5 }}>
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
-                  <XAxis dataKey="stage" axisLine={false} tickLine={false} tick={{ fill: "#6b7280" }} dy={10} />
-                  <YAxis axisLine={false} tickLine={false} tick={{ fill: "#6b7280" }} />
-                  <Tooltip cursor={{ fill: "#f3f4f6" }} contentStyle={{ borderRadius: "8px", border: "none", boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)" }} />
+                <BarChart
+                  data={lifecycleData}
+                  margin={{ top: 20, right: 10, left: 0, bottom: 5 }}
+                >
+                  <CartesianGrid
+                    strokeDasharray="3 3"
+                    vertical={false}
+                    stroke="#e5e7eb"
+                  />
+                  <XAxis
+                    dataKey="stage"
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: "#6b7280" }}
+                    dy={10}
+                  />
+                  <YAxis
+                    axisLine={false}
+                    tickLine={false}
+                    tick={{ fill: "#6b7280" }}
+                  />
+                  <Tooltip
+                    cursor={{ fill: "#f3f4f6" }}
+                    contentStyle={{
+                      borderRadius: "8px",
+                      border: "none",
+                      boxShadow: "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+                    }}
+                  />
                   <Legend wrapperStyle={{ paddingTop: "20px" }} />
                   {baseImages.map((img, i) => (
-                    <Bar key={img} dataKey={`${img}_${selectedMetric}`} name={img as string} fill={colors[i % colors.length]} radius={[4, 4, 0, 0]} maxBarSize={40} />
+                    <Bar
+                      key={img}
+                      dataKey={`${img}_${selectedMetric}`}
+                      name={img as string}
+                      fill={colors[i % colors.length]}
+                      radius={[4, 4, 0, 0]}
+                      maxBarSize={40}
+                    />
                   ))}
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-xs text-gray-400 mt-4 text-center">Note: Lifecycle events happen very fast, so energy (Joules) will appear much lower than 60-second load tests.</p>
+            <p className="text-xs text-gray-400 mt-4 text-center">
+              Note: Lifecycle events happen very fast, so energy (Joules) will
+              appear much lower than 60-second load tests.
+            </p>
           </div>
         </div>
 
@@ -215,23 +337,27 @@ export default function DashboardClient({ experiments }: { experiments: any[] })
                 <tr>
                   <th className="px-6 py-4">Experiment</th>
                   <th className="px-6 py-4">Base Image</th>
-                  <th className="px-6 py-4">Trials</th>
-                  <th className="px-6 py-4">Stages</th>
                   <th className="px-6 py-4">Baseline Power</th>
                 </tr>
               </thead>
               <tbody>
                 {experiments.map((exp, i) => (
-                  <tr key={i} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="px-6 py-4 font-medium">{exp.ExperimentID}</td>
+                  <tr
+                    key={i}
+                    onClick={() => router.push(`/experiment/${exp.ExperimentID}`)}
+                    className="border-b border-gray-100 hover:bg-gray-100 cursor-pointer transition-colors"
+                  >
+                    <td className="px-6 py-4 font-medium text-blue-600 hover:underline">
+                      {exp.ExperimentID}
+                    </td>
                     <td className="px-6 py-4">
                       <span className="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-medium border border-blue-100">
                         {exp.Config?.Build?.BaseImage || "unknown"}
                       </span>
                     </td>
-                    <td className="px-6 py-4">{exp.Config?.Trials || 1}</td>
-                    <td className="px-6 py-4">{exp.Config?.Stages?.length || 0} stages</td>
-                    <td className="px-6 py-4">{(exp.Baseline?.PowerWatts || 0).toFixed(2)} W</td>
+                    <td className="px-6 py-4">
+                      {(exp.Baseline?.PowerWatts || 0).toFixed(2)} W
+                    </td>
                   </tr>
                 ))}
               </tbody>

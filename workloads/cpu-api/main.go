@@ -29,7 +29,7 @@ func handleHealth(w http.ResponseWriter, r *http.Request) {
 // counts all prime numbers up to 50,000 using trial division.
 // This reliably pegs the CPU when hit concurrently.
 func handleCompute(w http.ResponseWriter, r *http.Request) {
-	limit := 50000
+	limit := 500000
 	count := countPrimes(limit)
 
 	result := struct {

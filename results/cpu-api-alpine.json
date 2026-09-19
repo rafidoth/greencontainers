@@ -1,0 +1,1407 @@
+{
+  "ExperimentID": "cpu-api-alpine",
+  "Config": {
+    "ExperimentID": "cpu-api-alpine",
+    "Trials": 3,
+    "Build": {
+      "Context": "./workloads/cpu-api",
+      "Dockerfile": "Dockerfile",
+      "BaseImage": "alpine:latest",
+      "Tag": "green-cpu-api:alpine",
+      "ColdPull": true
+    },
+    "Container": {
+      "HostPort": 8080,
+      "ContainerPort": 8080
+    },
+    "Endpoints": {
+      "Health": "http://localhost:8080/health",
+      "Target": "http://localhost:8080/compute"
+    },
+    "Baseline": {
+      "Duration": "60s"
+    },
+    "Cooldown": "10s",
+    "Stages": [
+      {
+        "Name": "idle",
+        "Type": "idle",
+        "Duration": "60s",
+        "Rate": 0,
+        "Threads": 0,
+        "Connections": 0,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "light-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 100,
+        "Threads": 2,
+        "Connections": 10,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "medium-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 10000,
+        "Threads": 4,
+        "Connections": 100,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "heavy-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 50000,
+        "Threads": 4,
+        "Connections": 200,
+        "ParsedDuration": 60000000000
+      }
+    ],
+    "CooldownDuration": 10000000000,
+    "BaselineDuration": 60000000000,
+    "EnableBaselineCorrection": true,
+    "CPUSamplingInterval": 1000000000,
+    "MemorySamplingInterval": 1000000000,
+    "Images": null,
+    "IdleDuration": 0,
+    "OutputDirectory": "./results",
+    "ColdPull": false,
+    "Randomize": false,
+    "Dockerfile": "",
+    "BuildContext": "",
+    "ContainerCommand": "",
+    "ContainerPort": ""
+  },
+  "DockerVer": "29.1.3",
+  "Baseline": {
+    "Duration": 60000962001,
+    "EnergyJoules": 1777.724365,
+    "PowerWatts": 29.62826437633403,
+    "CPUAvgPercent": 5.412005204426519,
+    "MemAvgMB": 3893.1936197916666
+  },
+  "Stages": [
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-pull",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Pull",
+      "StageName": "pull",
+      "StageType": "pull",
+      "StartedAt": "2026-09-19T03:15:17.861531025+06:00",
+      "FinishedAt": "2026-09-19T03:15:22.348584102+06:00",
+      "Duration": 4487053077,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:15:17.861531025+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 31048910963,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:15:22.348584102+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 31181070556,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 132159593,
+      "RawEnergyJoules": 132.159593,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 132.94359483599908,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 29.45353904490932,
+      "CPUAvgPercent": 2.3359428068121897,
+      "CPUPeakPercent": 3.5,
+      "MemAvgMB": 3890.1337890625,
+      "MemPeakMB": 3894.21484375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-build",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Build",
+      "StageName": "build",
+      "StageType": "build",
+      "StartedAt": "2026-09-19T03:15:22.348685764+06:00",
+      "FinishedAt": "2026-09-19T03:15:38.486185746+06:00",
+      "Duration": 16137499992,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:15:22.348685764+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 31181070556,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:15:38.486185746+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 32010432771,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 829362215,
+      "RawEnergyJoules": 829.362215,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 478.12611613606424,
+      "EnergyCorrectedJ": 351.23609886393575,
+      "AveragePowerWatts": 51.3934757807063,
+      "CPUAvgPercent": 27.182409183678555,
+      "CPUPeakPercent": 81.13522537562605,
+      "MemAvgMB": 4208.583251953125,
+      "MemPeakMB": 4488.3125,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T03:15:38.495569603+06:00",
+      "FinishedAt": "2026-09-19T03:15:38.707956332+06:00",
+      "Duration": 212386719,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:15:38.495569603+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 32011044983,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:15:38.707956332+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 32021185450,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 10140467,
+      "RawEnergyJoules": 10.140467,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 6.292649860554166,
+      "EnergyCorrectedJ": 3.8478171394458336,
+      "AveragePowerWatts": 47.745297105889186,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T03:15:39.209948863+06:00",
+      "FinishedAt": "2026-09-19T03:16:39.211033504+06:00",
+      "Duration": 60001084641,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:15:39.209948863+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 32042269015,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:16:39.211033504+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33881729796,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1839460781,
+      "RawEnergyJoules": 1839.460781,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 1777.727998610343,
+      "EnergyCorrectedJ": 61.732782389656904,
+      "AveragePowerWatts": 30.657125483745972,
+      "CPUAvgPercent": 5.962464174327782,
+      "CPUPeakPercent": 48.65546218487395,
+      "MemAvgMB": 4023.321504237288,
+      "MemPeakMB": 4378.84375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:16:49.220230869+06:00",
+      "FinishedAt": "2026-09-19T03:17:50.9686447+06:00",
+      "Duration": 61748413831,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:16:49.220230869+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 34147296202,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:17:50.9686447+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 36570892210,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2423596008,
+      "RawEnergyJoules": 2423.596008,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 1829.4983298041489,
+      "EnergyCorrectedJ": 594.0976781958511,
+      "AveragePowerWatts": 39.24952654870083,
+      "CPUAvgPercent": 7.993529839266686,
+      "CPUPeakPercent": 34.69387755102041,
+      "MemAvgMB": 4047.2400102459014,
+      "MemPeakMB": 4270.32421875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:18:00.977852304+06:00",
+      "FinishedAt": "2026-09-19T03:19:11.073029774+06:00",
+      "Duration": 70095177460,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:18:00.977852304+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 36940400414,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:19:11.073029774+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 40658039670,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3717639256,
+      "RawEnergyJoules": 3717.639256,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 2076.79844929093,
+      "EnergyCorrectedJ": 1640.84080670907,
+      "AveragePowerWatts": 53.03701896070497,
+      "CPUAvgPercent": 97.38841879120613,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6169.031640625,
+      "MemPeakMB": 6671.81640625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:19:21.081929374+06:00",
+      "FinishedAt": "2026-09-19T03:20:53.401273106+06:00",
+      "Duration": 92319343722,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:19:21.081929374+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 40941032161,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:20:53.401273106+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46684080376,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 5743048215,
+      "RawEnergyJoules": 5743.048215,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 2735.2619228450694,
+      "EnergyCorrectedJ": 3007.7862921549304,
+      "AveragePowerWatts": 62.20850347781895,
+      "CPUAvgPercent": 91.53606843215394,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 9035.777598505434,
+      "MemPeakMB": 10378.90625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T03:20:53.401383804+06:00",
+      "FinishedAt": "2026-09-19T03:20:54.681197286+06:00",
+      "Duration": 1279813472,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:20:53.401383804+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46684080376,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:20:54.681197286+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46749696047,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 65615671,
+      "RawEnergyJoules": 65.615671,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 37.91865190080997,
+      "EnergyCorrectedJ": 27.697019099190037,
+      "AveragePowerWatts": 51.26971424785877,
+      "CPUAvgPercent": 17.736486486486488,
+      "CPUPeakPercent": 17.736486486486488,
+      "MemAvgMB": 3972.0390625,
+      "MemPeakMB": 3972.0390625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T03:20:54.681289159+06:00",
+      "FinishedAt": "2026-09-19T03:20:54.739014295+06:00",
+      "Duration": 57725136,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:20:54.681289159+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46749696047,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:20:54.739014295+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46752400345,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2704298,
+      "RawEnergyJoules": 2.704298,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 1.7102955905678372,
+      "EnergyCorrectedJ": 0.9940024094321629,
+      "AveragePowerWatts": 46.84784112072079,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T03:20:54.739114043+06:00",
+      "FinishedAt": "2026-09-19T03:20:55.133022692+06:00",
+      "Duration": 393908659,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:20:54.739114043+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46752400345,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:20:55.133022692+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46771715523,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 19315178,
+      "RawEnergyJoules": 19.315178,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 11.67082988897921,
+      "EnergyCorrectedJ": 7.64434811102079,
+      "AveragePowerWatts": 49.034662119473744,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T03:20:55.634992071+06:00",
+      "FinishedAt": "2026-09-19T03:21:55.635226527+06:00",
+      "Duration": 60000234466,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:20:55.634992071+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 46789692453,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:21:55.635226527+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48444442495,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1654750042,
+      "RawEnergyJoules": 1654.750042,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 1777.702809400677,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 27.579059594136883,
+      "CPUAvgPercent": 2.519269281259996,
+      "CPUPeakPercent": 16.889632107023413,
+      "MemAvgMB": 3991.348715572034,
+      "MemPeakMB": 4440.41015625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:22:05.644393442+06:00",
+      "FinishedAt": "2026-09-19T03:23:07.769335353+06:00",
+      "Duration": 62124941901,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:22:05.644393442+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48790713712,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:23:07.769335353+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 51460911271,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2670197559,
+      "RawEnergyJoules": 2670.197559,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 1840.6542030072196,
+      "EnergyCorrectedJ": 829.5433559927806,
+      "AveragePowerWatts": 42.98108742306959,
+      "CPUAvgPercent": 12.930535734512514,
+      "CPUPeakPercent": 29.51096121416526,
+      "MemAvgMB": 4017.0355342741937,
+      "MemPeakMB": 4158.47265625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:23:17.778486454+06:00",
+      "FinishedAt": "2026-09-19T03:24:27.984212815+06:00",
+      "Duration": 70205726352,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:23:17.778486454+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 51768556494,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:24:27.984212815+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 55552220442,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3783663948,
+      "RawEnergyJoules": 3783.663948,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 2080.073821089617,
+      "EnergyCorrectedJ": 1703.5901269103829,
+      "AveragePowerWatts": 53.89395060211085,
+      "CPUAvgPercent": 97.32185654490641,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6216.751450892857,
+      "MemPeakMB": 6543.47265625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:24:37.992852278+06:00",
+      "FinishedAt": "2026-09-19T03:26:10.358221286+06:00",
+      "Duration": 92365369007,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:24:37.992852278+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 55817275003,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:26:10.358221286+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61677831545,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 5860556542,
+      "RawEnergyJoules": 5860.556542,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 2736.6255721570456,
+      "EnergyCorrectedJ": 3123.9309698429547,
+      "AveragePowerWatts": 63.449717193852734,
+      "CPUAvgPercent": 90.08285624552677,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 9180.293308423914,
+      "MemPeakMB": 10583.96484375,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T03:26:10.35837291+06:00",
+      "FinishedAt": "2026-09-19T03:26:11.652639175+06:00",
+      "Duration": 1294266265,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:26:10.35837291+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61677831545,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:26:11.652639175+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61743269415,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 65437870,
+      "RawEnergyJoules": 65.43787,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 38.346863072790406,
+      "EnergyCorrectedJ": 27.091006927209598,
+      "AveragePowerWatts": 50.559820470944594,
+      "CPUAvgPercent": 17.438921651221566,
+      "CPUPeakPercent": 17.438921651221566,
+      "MemAvgMB": 4046.16796875,
+      "MemPeakMB": 4046.16796875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T03:26:11.652733892+06:00",
+      "FinishedAt": "2026-09-19T03:26:11.757801108+06:00",
+      "Duration": 105067206,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:26:11.652733892+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61743269415,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:26:11.757801108+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61747564053,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 4294638,
+      "RawEnergyJoules": 4.294638,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 3.112958956650749,
+      "EnergyCorrectedJ": 1.1816790433492508,
+      "AveragePowerWatts": 40.87515185280553,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T03:26:11.757987047+06:00",
+      "FinishedAt": "2026-09-19T03:26:12.166109492+06:00",
+      "Duration": 408122445,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:26:11.757987047+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61747564053,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:26:12.166109492+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61767841996,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 20277943,
+      "RawEnergyJoules": 20.277943,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 12.091959698375845,
+      "EnergyCorrectedJ": 8.185983301624155,
+      "AveragePowerWatts": 49.68592942738055,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T03:26:12.667306448+06:00",
+      "FinishedAt": "2026-09-19T03:27:12.66784912+06:00",
+      "Duration": 60000542682,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:26:12.667306448+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 61785672816,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:27:12.66784912+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63359121276,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1573448460,
+      "RawEnergyJoules": 1573.44846,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 1777.7119413058101,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 26.223903812657184,
+      "CPUAvgPercent": 1.5414270604739495,
+      "CPUPeakPercent": 3.164029975020816,
+      "MemAvgMB": 3978.563691737288,
+      "MemPeakMB": 4037.4921875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:27:22.676932424+06:00",
+      "FinishedAt": "2026-09-19T03:28:24.885701366+06:00",
+      "Duration": 62208768932,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:27:22.676932424+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63616273673,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:28:24.885701366+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 512714711,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2429052025,
+      "RawEnergyJoules": 2429.052025,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 1843.1378524435706,
+      "EnergyCorrectedJ": 585.9141725564293,
+      "AveragePowerWatts": 39.04677856035346,
+      "CPUAvgPercent": 6.013304898103433,
+      "CPUPeakPercent": 10.785953177257525,
+      "MemAvgMB": 3992.426285282258,
+      "MemPeakMB": 4033.3984375,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:28:34.894997462+06:00",
+      "FinishedAt": "2026-09-19T03:29:44.291398191+06:00",
+      "Duration": 69396400719,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:28:34.894997462+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 832948730,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:29:44.291398191+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 4559298168,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3726349438,
+      "RawEnergyJoules": 3726.349438,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 2056.094907268549,
+      "EnergyCorrectedJ": 1670.2545307314513,
+      "AveragePowerWatts": 53.6965807937034,
+      "CPUAvgPercent": 99.08602276639881,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6139.677479619565,
+      "MemPeakMB": 6603.18359375,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:29:54.300571673+06:00",
+      "FinishedAt": "2026-09-19T03:31:26.744465969+06:00",
+      "Duration": 92443894296,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:29:54.300571673+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 4811528028,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:31:26.744465969+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 10679087337,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 5867559309,
+      "RawEnergyJoules": 5867.559309,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 2738.952140179765,
+      "EnergyCorrectedJ": 3128.607168820235,
+      "AveragePowerWatts": 63.47157217557728,
+      "CPUAvgPercent": 91.44199394605671,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 9314.589114010989,
+      "MemPeakMB": 10760.2734375,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T03:31:26.744602785+06:00",
+      "FinishedAt": "2026-09-19T03:31:28.110584988+06:00",
+      "Duration": 1365982193,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:31:26.744602785+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 10679087337,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:31:28.110584988+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 10747408465,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 68321128,
+      "RawEnergyJoules": 68.321128,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 40.47168154756854,
+      "EnergyCorrectedJ": 27.849446452431465,
+      "AveragePowerWatts": 50.01611906078486,
+      "CPUAvgPercent": 16.020236087689714,
+      "CPUPeakPercent": 16.020236087689714,
+      "MemAvgMB": 4030.6796875,
+      "MemPeakMB": 4030.6796875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-alpine",
+      "TrialID": "cpu-api-alpine-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "alpine",
+        "Digest": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "ID": "sha256:8a0e81afd6fe7c8fc43c8cedbc267de01869f9d25148d7cb6d9a2805bb29232e",
+        "SizeBytes": 9379648,
+        "SizeMB": 8.94512939453125,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T03:31:28.11068768+06:00",
+      "FinishedAt": "2026-09-19T03:31:28.13804321+06:00",
+      "Duration": 27355530,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:31:28.11068768+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 10747408465,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:31:28.13804321+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 10748842976,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1434511,
+      "RawEnergyJoules": 1.434511,
+      "BaselinePowerWatts": 29.62826437633403,
+      "BackgroundEnergyJ": 0.8104968749947369,
+      "EnergyCorrectedJ": 0.6240141250052632,
+      "AveragePowerWatts": 52.43952502473906,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "alpine:latest",
+      "Success": true,
+      "Error": ""
+    }
+  ]
+}

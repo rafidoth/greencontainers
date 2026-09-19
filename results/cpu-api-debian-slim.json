@@ -1,0 +1,1407 @@
+{
+  "ExperimentID": "cpu-api-debian-slim",
+  "Config": {
+    "ExperimentID": "cpu-api-debian-slim",
+    "Trials": 3,
+    "Build": {
+      "Context": "./workloads/cpu-api",
+      "Dockerfile": "Dockerfile",
+      "BaseImage": "debian:bookworm-slim",
+      "Tag": "green-cpu-api:debian-slim",
+      "ColdPull": true
+    },
+    "Container": {
+      "HostPort": 8080,
+      "ContainerPort": 8080
+    },
+    "Endpoints": {
+      "Health": "http://localhost:8080/health",
+      "Target": "http://localhost:8080/compute"
+    },
+    "Baseline": {
+      "Duration": "60s"
+    },
+    "Cooldown": "10s",
+    "Stages": [
+      {
+        "Name": "idle",
+        "Type": "idle",
+        "Duration": "60s",
+        "Rate": 0,
+        "Threads": 0,
+        "Connections": 0,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "light-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 100,
+        "Threads": 2,
+        "Connections": 10,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "medium-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 10000,
+        "Threads": 4,
+        "Connections": 100,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "heavy-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 50000,
+        "Threads": 4,
+        "Connections": 200,
+        "ParsedDuration": 60000000000
+      }
+    ],
+    "CooldownDuration": 10000000000,
+    "BaselineDuration": 60000000000,
+    "EnableBaselineCorrection": true,
+    "CPUSamplingInterval": 1000000000,
+    "MemorySamplingInterval": 1000000000,
+    "Images": null,
+    "IdleDuration": 0,
+    "OutputDirectory": "./results",
+    "ColdPull": false,
+    "Randomize": false,
+    "Dockerfile": "",
+    "BuildContext": "",
+    "ContainerCommand": "",
+    "ContainerPort": ""
+  },
+  "DockerVer": "29.1.3",
+  "Baseline": {
+    "Duration": 60000533901,
+    "EnergyJoules": 1500.973326,
+    "PowerWatts": 25.015999498880863,
+    "CPUAvgPercent": 1.4907903783730303,
+    "MemAvgMB": 3869.2681408898306
+  },
+  "Stages": [
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-pull",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Pull",
+      "StageName": "pull",
+      "StageType": "pull",
+      "StartedAt": "2026-09-19T03:36:28.174851458+06:00",
+      "FinishedAt": "2026-09-19T03:36:32.503621608+06:00",
+      "Duration": 4328770150,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:36:28.174851458+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 18221849365,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:36:32.503621608+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 18350272792,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 128423427,
+      "RawEnergyJoules": 128.423427,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 108.28851190317044,
+      "EnergyCorrectedJ": 20.13491509682956,
+      "AveragePowerWatts": 29.6674165062795,
+      "CPUAvgPercent": 2.0652832000880896,
+      "CPUPeakPercent": 2.9215358931552586,
+      "MemAvgMB": 3900.3486328125,
+      "MemPeakMB": 3902.76953125,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-build",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Build",
+      "StageName": "build",
+      "StageType": "build",
+      "StartedAt": "2026-09-19T03:36:32.503729099+06:00",
+      "FinishedAt": "2026-09-19T03:36:49.384375883+06:00",
+      "Duration": 16880646784,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:36:32.503729099+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 18350272792,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:36:49.384375883+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 19206403063,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 856130271,
+      "RawEnergyJoules": 856.130271,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 422.28625148932883,
+      "EnergyCorrectedJ": 433.84401951067116,
+      "AveragePowerWatts": 50.71667466032562,
+      "CPUAvgPercent": 25.981896149241923,
+      "CPUPeakPercent": 81.8105616093881,
+      "MemAvgMB": 4163.595703125,
+      "MemPeakMB": 4567.01171875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T03:36:49.39119285+06:00",
+      "FinishedAt": "2026-09-19T03:36:49.717127607+06:00",
+      "Duration": 325934767,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:36:49.39119285+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 19206816357,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:36:49.717127607+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 19221492539,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 14676182,
+      "RawEnergyJoules": 14.676182,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 8.15358396793985,
+      "EnergyCorrectedJ": 6.52259803206015,
+      "AveragePowerWatts": 45.02797334289901,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T03:36:50.218740416+06:00",
+      "FinishedAt": "2026-09-19T03:37:50.219170326+06:00",
+      "Duration": 60000429900,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:36:50.218740416+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 19238985500,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:37:50.219170326+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 20734839630,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1495854130,
+      "RawEnergyJoules": 1495.85413,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1500.9707243110363,
+      "EnergyCorrectedJ": 0,
+      "AveragePowerWatts": 24.930723538032517,
+      "CPUAvgPercent": 1.4670370376663207,
+      "CPUPeakPercent": 3.4223706176961604,
+      "MemAvgMB": 3925.605989583333,
+      "MemPeakMB": 4036.5234375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:38:00.228352317+06:00",
+      "FinishedAt": "2026-09-19T03:39:02.032395621+06:00",
+      "Duration": 61804043294,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:38:00.228352317+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 20995223610,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:39:02.032395621+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 23312867807,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2317644197,
+      "RawEnergyJoules": 2317.644197,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1546.0899160715153,
+      "EnergyCorrectedJ": 771.5542809284848,
+      "AveragePowerWatts": 37.49987983755424,
+      "CPUAvgPercent": 6.054153435460959,
+      "CPUPeakPercent": 9.966499162479062,
+      "MemAvgMB": 3958.299948770492,
+      "MemPeakMB": 3999.65234375,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:39:12.041545804+06:00",
+      "FinishedAt": "2026-09-19T03:40:22.111768327+06:00",
+      "Duration": 70070222523,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:39:12.041545804+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 23554912099,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:40:22.111768327+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 27149526558,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3594614459,
+      "RawEnergyJoules": 3594.614459,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1752.8766515218385,
+      "EnergyCorrectedJ": 1841.7378074781614,
+      "AveragePowerWatts": 51.300171878576464,
+      "CPUAvgPercent": 97.42466824739026,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6096.349832589286,
+      "MemPeakMB": 6587.32421875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:40:32.112262891+06:00",
+      "FinishedAt": "2026-09-19T03:42:06.495540922+06:00",
+      "Duration": 94383278031,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:40:32.112262891+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 27422034469,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:42:06.495540922+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33479147375,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 6057112906,
+      "RawEnergyJoules": 6057.112906,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 2361.092035926229,
+      "EnergyCorrectedJ": 3696.020870073771,
+      "AveragePowerWatts": 64.17569968284587,
+      "CPUAvgPercent": 92.16097744309747,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 9466.78789893617,
+      "MemPeakMB": 11197.28125,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T03:42:06.49570395+06:00",
+      "FinishedAt": "2026-09-19T03:42:07.721462618+06:00",
+      "Duration": 1225758668,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:42:06.49570395+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33479147375,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:42:07.721462618+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33542052065,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 62904690,
+      "RawEnergyJoules": 62.90469,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 30.663578224436876,
+      "EnergyCorrectedJ": 32.24111177556313,
+      "AveragePowerWatts": 51.31898443160754,
+      "CPUAvgPercent": 19.594594594594593,
+      "CPUPeakPercent": 19.594594594594593,
+      "MemAvgMB": 4358.40234375,
+      "MemPeakMB": 4358.40234375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T03:42:07.72156117+06:00",
+      "FinishedAt": "2026-09-19T03:42:07.757395325+06:00",
+      "Duration": 35834145,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:42:07.72156117+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33542085267,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:42:07.757395325+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33543993463,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1908196,
+      "RawEnergyJoules": 1.908196,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 0.8964269533628241,
+      "EnergyCorrectedJ": 1.011769046637176,
+      "AveragePowerWatts": 53.25077520337098,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T03:42:07.757528334+06:00",
+      "FinishedAt": "2026-09-19T03:42:08.362024452+06:00",
+      "Duration": 604496129,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:42:07.757528334+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33543993463,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:42:08.362024452+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33571295197,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 27301734,
+      "RawEnergyJoules": 27.301734,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 15.122074860139422,
+      "EnergyCorrectedJ": 12.179659139860577,
+      "AveragePowerWatts": 45.16444802577056,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T03:42:08.866417332+06:00",
+      "FinishedAt": "2026-09-19T03:43:08.867625308+06:00",
+      "Duration": 60001207966,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:42:08.866417332+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 33589688335,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:43:08.867625308+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 35121998054,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1532309719,
+      "RawEnergyJoules": 1532.309719,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1500.9901884097026,
+      "EnergyCorrectedJ": 31.319530590297518,
+      "AveragePowerWatts": 25.537981166450706,
+      "CPUAvgPercent": 1.4366780304222277,
+      "CPUPeakPercent": 2.842809364548495,
+      "MemAvgMB": 4020.4762369791665,
+      "MemPeakMB": 4373.16796875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:43:18.876983025+06:00",
+      "FinishedAt": "2026-09-19T03:44:20.823804369+06:00",
+      "Duration": 61946821344,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:43:18.876983025+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 35388490757,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:44:20.823804369+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37777763574,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2389272817,
+      "RawEnergyJoules": 2389.272817,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1549.6616516987663,
+      "EnergyCorrectedJ": 839.6111653012338,
+      "AveragePowerWatts": 38.56974038638737,
+      "CPUAvgPercent": 5.9828536230184435,
+      "CPUPeakPercent": 11.474036850921273,
+      "MemAvgMB": 3969.043288934426,
+      "MemPeakMB": 4062.7421875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:44:30.833004525+06:00",
+      "FinishedAt": "2026-09-19T03:45:40.888580811+06:00",
+      "Duration": 70055576286,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:44:30.833004525+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 38031200800,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:45:40.888580811+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 41682221324,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3651020524,
+      "RawEnergyJoules": 3651.020524,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1752.5102612643861,
+      "EnergyCorrectedJ": 1898.5102627356139,
+      "AveragePowerWatts": 52.1160586716867,
+      "CPUAvgPercent": 97.3986858607032,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6206.165792410714,
+      "MemPeakMB": 6713.625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:45:50.898008561+06:00",
+      "FinishedAt": "2026-09-19T03:47:31.578018491+06:00",
+      "Duration": 100680009940,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:45:50.898008561+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 41934087205,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:47:31.578018491+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48338491844,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 6404404639,
+      "RawEnergyJoules": 6404.404639,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 2518.6110782063606,
+      "EnergyCorrectedJ": 3885.7935607936397,
+      "AveragePowerWatts": 63.61148198949016,
+      "CPUAvgPercent": 87.44214361958484,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 9650.308120265152,
+      "MemPeakMB": 10906.04296875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T03:47:31.578217001+06:00",
+      "FinishedAt": "2026-09-19T03:47:32.86770422+06:00",
+      "Duration": 1289487218,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:47:31.578217001+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48338491844,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:47:32.86770422+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48405109675,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 66617831,
+      "RawEnergyJoules": 66.617831,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 32.25781159930128,
+      "EnergyCorrectedJ": 34.36001940069872,
+      "AveragePowerWatts": 51.66226548823378,
+      "CPUAvgPercent": 18.90295358649789,
+      "CPUPeakPercent": 18.90295358649789,
+      "MemAvgMB": 4047.49609375,
+      "MemPeakMB": 4047.49609375,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T03:47:32.867792379+06:00",
+      "FinishedAt": "2026-09-19T03:47:32.897230708+06:00",
+      "Duration": 29438320,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:47:32.867792379+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48405109675,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:47:32.897230708+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48406561733,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1452058,
+      "RawEnergyJoules": 1.452058,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 0.7364289983678944,
+      "EnergyCorrectedJ": 0.7156290016321056,
+      "AveragePowerWatts": 49.32543704939684,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T03:47:32.897359726+06:00",
+      "FinishedAt": "2026-09-19T03:47:33.625357357+06:00",
+      "Duration": 727997631,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:47:32.897359726+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48406561733,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:47:33.625357357+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48438756525,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 32194792,
+      "RawEnergyJoules": 32.194792,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 18.211588372282456,
+      "EnergyCorrectedJ": 13.983203627717543,
+      "AveragePowerWatts": 44.22375929407385,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T03:47:34.129645116+06:00",
+      "FinishedAt": "2026-09-19T03:48:34.130027652+06:00",
+      "Duration": 60000382536,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:47:34.129645116+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 48457259078,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:48:34.130027652+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 49981337014,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1524077936,
+      "RawEnergyJoules": 1524.077936,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1500.969539453236,
+      "EnergyCorrectedJ": 23.10839654676397,
+      "AveragePowerWatts": 25.401136985844367,
+      "CPUAvgPercent": 1.4001443746497815,
+      "CPUPeakPercent": 3.0100334448160537,
+      "MemAvgMB": 3978.6313559322034,
+      "MemPeakMB": 4095.57421875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:48:44.139211666+06:00",
+      "FinishedAt": "2026-09-19T03:49:45.926482839+06:00",
+      "Duration": 61787271174,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:48:44.139211666+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 50235715613,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:49:45.926482839+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 52637717524,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2402001911,
+      "RawEnergyJoules": 2402.001911,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1545.670344726,
+      "EnergyCorrectedJ": 856.3315662739999,
+      "AveragePowerWatts": 38.875351918936325,
+      "CPUAvgPercent": 5.924347730425432,
+      "CPUPeakPercent": 11.622073578595318,
+      "MemAvgMB": 3985.9644595286886,
+      "MemPeakMB": 4049.91796875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:49:55.935685299+06:00",
+      "FinishedAt": "2026-09-19T03:51:06.004820259+06:00",
+      "Duration": 70069134960,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:49:55.935685299+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 52899478447,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:51:06.004820259+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 56582521683,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3683043236,
+      "RawEnergyJoules": 3683.043236,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 1752.8494450463754,
+      "EnergyCorrectedJ": 1930.1937909536246,
+      "AveragePowerWatts": 52.562989939900355,
+      "CPUAvgPercent": 97.40226903662875,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6163.358816964285,
+      "MemPeakMB": 6603.23046875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:51:16.015032197+06:00",
+      "FinishedAt": "2026-09-19T03:53:01.261197773+06:00",
+      "Duration": 105246165586,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:51:16.015032197+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 56855060705,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:53:01.261197773+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63534669144,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 6679608439,
+      "RawEnergyJoules": 6679.608439,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 2632.8380255585084,
+      "EnergyCorrectedJ": 4046.770413441491,
+      "AveragePowerWatts": 63.46652537703978,
+      "CPUAvgPercent": 84.06471863583268,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 9842.207254464285,
+      "MemPeakMB": 11405.0546875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T03:53:01.261420706+06:00",
+      "FinishedAt": "2026-09-19T03:53:02.537454166+06:00",
+      "Duration": 1276033470,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:53:01.261420706+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63534669144,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:53:02.537454166+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63602011501,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 67342357,
+      "RawEnergyJoules": 67.342357,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 31.92125264607521,
+      "EnergyCorrectedJ": 35.4211043539248,
+      "AveragePowerWatts": 52.7747575461324,
+      "CPUAvgPercent": 21.127946127946128,
+      "CPUPeakPercent": 21.127946127946128,
+      "MemAvgMB": 4248.80078125,
+      "MemPeakMB": 4248.80078125,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-debian-slim",
+      "TrialID": "cpu-api-debian-slim-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "debian-slim",
+        "Digest": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "ID": "sha256:7efd1feb97d5c9bdc09b6681846369611e8d5133785911632c73b003a4d0c213",
+        "SizeBytes": 33762403,
+        "SizeMB": 32.198336601257324,
+        "NumLayers": 2
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T03:53:02.537544267+06:00",
+      "FinishedAt": "2026-09-19T03:53:02.566732623+06:00",
+      "Duration": 29188346,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:53:02.537544267+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63602044703,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:53:02.566732623+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 63603594229,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1549526,
+      "RawEnergyJoules": 1.549526,
+      "BaselinePowerWatts": 25.015999498880863,
+      "BackgroundEnergyJ": 0.7301756489091612,
+      "EnergyCorrectedJ": 0.8193503510908388,
+      "AveragePowerWatts": 53.087146493329904,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "debian:bookworm-slim",
+      "Success": true,
+      "Error": ""
+    }
+  ]
+}

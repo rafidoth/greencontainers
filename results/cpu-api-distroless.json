@@ -1,0 +1,1407 @@
+{
+  "ExperimentID": "cpu-api-distroless",
+  "Config": {
+    "ExperimentID": "cpu-api-distroless",
+    "Trials": 3,
+    "Build": {
+      "Context": "./workloads/cpu-api",
+      "Dockerfile": "Dockerfile",
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Tag": "green-cpu-api:distroless",
+      "ColdPull": true
+    },
+    "Container": {
+      "HostPort": 8080,
+      "ContainerPort": 8080
+    },
+    "Endpoints": {
+      "Health": "http://localhost:8080/health",
+      "Target": "http://localhost:8080/compute"
+    },
+    "Baseline": {
+      "Duration": "60s"
+    },
+    "Cooldown": "10s",
+    "Stages": [
+      {
+        "Name": "idle",
+        "Type": "idle",
+        "Duration": "60s",
+        "Rate": 0,
+        "Threads": 0,
+        "Connections": 0,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "light-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 100,
+        "Threads": 2,
+        "Connections": 10,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "medium-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 10000,
+        "Threads": 4,
+        "Connections": 100,
+        "ParsedDuration": 60000000000
+      },
+      {
+        "Name": "heavy-load",
+        "Type": "k6",
+        "Duration": "60s",
+        "Rate": 50000,
+        "Threads": 4,
+        "Connections": 200,
+        "ParsedDuration": 60000000000
+      }
+    ],
+    "CooldownDuration": 10000000000,
+    "BaselineDuration": 60000000000,
+    "EnableBaselineCorrection": true,
+    "CPUSamplingInterval": 1000000000,
+    "MemorySamplingInterval": 1000000000,
+    "Images": null,
+    "IdleDuration": 0,
+    "OutputDirectory": "./results",
+    "ColdPull": false,
+    "Randomize": false,
+    "Dockerfile": "",
+    "BuildContext": "",
+    "ContainerCommand": "",
+    "ContainerPort": ""
+  },
+  "DockerVer": "29.1.3",
+  "Baseline": {
+    "Duration": 60000438884,
+    "EnergyJoules": 1423.27776,
+    "PowerWatts": 23.721122486314645,
+    "CPUAvgPercent": 1.3446254110084541,
+    "MemAvgMB": 3875.241525423729
+  },
+  "Stages": [
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-pull",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Pull",
+      "StageName": "pull",
+      "StageType": "pull",
+      "StartedAt": "2026-09-19T03:58:02.596473379+06:00",
+      "FinishedAt": "2026-09-19T03:58:07.722046228+06:00",
+      "Duration": 5125572849,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:58:02.596473379+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 5229061306,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:58:07.722046228+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 5377934741,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 148873435,
+      "RawEnergyJoules": 148.873435,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 121.58434136365771,
+      "EnergyCorrectedJ": 27.289093636342287,
+      "AveragePowerWatts": 29.045228579483602,
+      "CPUAvgPercent": 2.252438600026837,
+      "CPUPeakPercent": 4.666666666666667,
+      "MemAvgMB": 3944.73828125,
+      "MemPeakMB": 3954.90625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-build",
+      "TrialNumber": 0,
+      "ImageMetadata": {
+        "Name": "",
+        "Tag": "",
+        "Digest": "",
+        "ID": "",
+        "SizeBytes": 0,
+        "SizeMB": 0,
+        "NumLayers": 0
+      },
+      "Stage": "Build",
+      "StageName": "build",
+      "StageType": "build",
+      "StartedAt": "2026-09-19T03:58:07.722182856+06:00",
+      "FinishedAt": "2026-09-19T03:58:24.431308149+06:00",
+      "Duration": 16709125293,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:58:07.722182856+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 5377934741,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:58:24.431308149+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 6212137084,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 834202343,
+      "RawEnergyJoules": 834.202343,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 396.3592077144311,
+      "EnergyCorrectedJ": 437.84313528556896,
+      "AveragePowerWatts": 49.924955877222054,
+      "CPUAvgPercent": 25.689363655944764,
+      "CPUPeakPercent": 79.93311036789298,
+      "MemAvgMB": 4161.169921875,
+      "MemPeakMB": 4500.51953125,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T03:58:24.44457751+06:00",
+      "FinishedAt": "2026-09-19T03:58:24.814141892+06:00",
+      "Duration": 369564382,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:58:24.44457751+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 6212918172,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:58:24.814141892+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 6229568419,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 16650247,
+      "RawEnergyJoules": 16.650247,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 8.766481972001175,
+      "EnergyCorrectedJ": 7.883765027998825,
+      "AveragePowerWatts": 45.05371137200121,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T03:58:25.31598678+06:00",
+      "FinishedAt": "2026-09-19T03:59:25.316836302+06:00",
+      "Duration": 60000849522,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:58:25.31598678+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 6247215699,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T03:59:25.316836302+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 7686786348,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1439570649,
+      "RawEnergyJoules": 1439.570649,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1423.2875007942955,
+      "EnergyCorrectedJ": 16.283148205704492,
+      "AveragePowerWatts": 23.99250444732728,
+      "CPUAvgPercent": 1.3503749913606133,
+      "CPUPeakPercent": 3.336113427856547,
+      "MemAvgMB": 3934.9876853813557,
+      "MemPeakMB": 4062.06640625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T03:59:35.325099769+06:00",
+      "FinishedAt": "2026-09-19T04:00:37.288410946+06:00",
+      "Duration": 61963311177,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T03:59:35.325099769+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 7936823421,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:00:37.288410946+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 10287412585,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2350589164,
+      "RawEnergyJoules": 2350.589164,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1469.8392940872463,
+      "EnergyCorrectedJ": 880.7498699127536,
+      "AveragePowerWatts": 37.935176790108486,
+      "CPUAvgPercent": 5.928339856881505,
+      "CPUPeakPercent": 11.297071129707113,
+      "MemAvgMB": 3973.8539959016393,
+      "MemPeakMB": 4032.8515625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:00:47.297661489+06:00",
+      "FinishedAt": "2026-09-19T04:01:57.529145714+06:00",
+      "Duration": 70231484215,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:00:47.297661489+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 10539837015,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:01:57.529145714+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 14215924190,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3676087175,
+      "RawEnergyJoules": 3676.087175,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1665.9696394596883,
+      "EnergyCorrectedJ": 2010.1175355403118,
+      "AveragePowerWatts": 52.34243895154452,
+      "CPUAvgPercent": 97.50397143763871,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6119.173046875,
+      "MemPeakMB": 6802.0625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:02:07.538010026+06:00",
+      "FinishedAt": "2026-09-19T04:04:01.092261003+06:00",
+      "Duration": 113554250988,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:02:07.538010026+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 14483157761,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:04:01.092261003+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21481716381,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 6998558620,
+      "RawEnergyJoules": 6998.55862,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 2693.6342965280637,
+      "EnergyCorrectedJ": 4304.924323471936,
+      "AveragePowerWatts": 61.63185049531595,
+      "CPUAvgPercent": 78.39980265657023,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 10050.489525719027,
+      "MemPeakMB": 11477.796875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T04:04:01.092363887+06:00",
+      "FinishedAt": "2026-09-19T04:04:02.360802694+06:00",
+      "Duration": 1268438807,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:04:01.092363887+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21481716381,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:04:02.360802694+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21546812730,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 65096349,
+      "RawEnergyJoules": 65.096349,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 30.088792307241818,
+      "EnergyCorrectedJ": 35.007556692758186,
+      "AveragePowerWatts": 51.32005473244718,
+      "CPUAvgPercent": 18.802698145025296,
+      "CPUPeakPercent": 18.802698145025296,
+      "MemAvgMB": 4286.640625,
+      "MemPeakMB": 4286.640625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t1",
+      "TrialNumber": 1,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T04:04:02.360911749+06:00",
+      "FinishedAt": "2026-09-19T04:04:02.390050816+06:00",
+      "Duration": 29139057,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:04:02.360911749+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21546812730,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:04:02.390050816+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21548222203,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1409473,
+      "RawEnergyJoules": 1.409473,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 0.6912111402327041,
+      "EnergyCorrectedJ": 0.7182618597672958,
+      "AveragePowerWatts": 48.370576988816076,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T04:04:02.390147368+06:00",
+      "FinishedAt": "2026-09-19T04:04:02.946721091+06:00",
+      "Duration": 556573723,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:04:02.390147368+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21548222203,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:04:02.946721091+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21573889791,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 25667588,
+      "RawEnergyJoules": 25.667588,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 13.202553455947157,
+      "EnergyCorrectedJ": 12.465034544052841,
+      "AveragePowerWatts": 46.117139453958735,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T04:04:03.449208797+06:00",
+      "FinishedAt": "2026-09-19T04:05:03.449736782+06:00",
+      "Duration": 60000527985,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:04:03.449208797+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 21592728508,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:05:03.449736782+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 23134585676,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1541857168,
+      "RawEnergyJoules": 1541.857168,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1423.2798735757347,
+      "EnergyCorrectedJ": 118.57729442426535,
+      "AveragePowerWatts": 25.69739333602966,
+      "CPUAvgPercent": 1.3294774640848943,
+      "CPUPeakPercent": 3.4223706176961604,
+      "MemAvgMB": 4021.2506510416665,
+      "MemPeakMB": 4257.7421875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:05:13.458921332+06:00",
+      "FinishedAt": "2026-09-19T04:06:15.306131642+06:00",
+      "Duration": 61847210311,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:05:13.458921332+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 23377096252,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:06:15.306131642+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 25758359305,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2381263053,
+      "RawEnergyJoules": 2381.263053,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1467.085251224093,
+      "EnergyCorrectedJ": 914.177801775907,
+      "AveragePowerWatts": 38.502351860751176,
+      "CPUAvgPercent": 5.8825626712254495,
+      "CPUPeakPercent": 11.232187761944678,
+      "MemAvgMB": 4008.907786885246,
+      "MemPeakMB": 4089.6796875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:06:25.315307996+06:00",
+      "FinishedAt": "2026-09-19T04:07:35.38342215+06:00",
+      "Duration": 70068114154,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:06:25.315307996+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 26018040349,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:07:35.38342215+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29710901666,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3692861317,
+      "RawEnergyJoules": 3692.861317,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1662.094318232111,
+      "EnergyCorrectedJ": 2030.766998767889,
+      "AveragePowerWatts": 52.703877670856144,
+      "CPUAvgPercent": 97.42642794183205,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6150.747935267857,
+      "MemPeakMB": 6743.875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:07:45.384226945+06:00",
+      "FinishedAt": "2026-09-19T04:09:50.729631643+06:00",
+      "Duration": 125345404698,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:07:45.384226945+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 29969547821,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:09:50.729631643+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37500614272,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 7531066451,
+      "RawEnergyJoules": 7531.066451,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 2973.333697937937,
+      "EnergyCorrectedJ": 4557.732753062062,
+      "AveragePowerWatts": 60.08250935999543,
+      "CPUAvgPercent": 72.59622256107764,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 10057.14415625,
+      "MemPeakMB": 11528.51171875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T04:09:50.729758472+06:00",
+      "FinishedAt": "2026-09-19T04:09:52.015450786+06:00",
+      "Duration": 1285692314,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:09:50.729758472+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37500614272,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:09:52.015450786+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37566267920,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 65653648,
+      "RawEnergyJoules": 65.653648,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 30.49806486010731,
+      "EnergyCorrectedJ": 35.1555831398927,
+      "AveragePowerWatts": 51.06482109684604,
+      "CPUAvgPercent": 19.84861227922624,
+      "CPUPeakPercent": 19.84861227922624,
+      "MemAvgMB": 4374.5625,
+      "MemPeakMB": 4374.5625,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t2",
+      "TrialNumber": 2,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T04:09:52.015540865+06:00",
+      "FinishedAt": "2026-09-19T04:09:52.062627348+06:00",
+      "Duration": 47086483,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:09:52.015540865+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37566267920,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:09:52.062627348+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37568776961,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2509041,
+      "RawEnergyJoules": 2.509041,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1.1169442306927722,
+      "EnergyCorrectedJ": 1.3920967693072277,
+      "AveragePowerWatts": 53.28580178731973,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Start",
+      "StageName": "start",
+      "StageType": "start",
+      "StartedAt": "2026-09-19T04:09:52.062753064+06:00",
+      "FinishedAt": "2026-09-19T04:09:53.059563013+06:00",
+      "Duration": 996809949,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:09:52.062753064+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37568776961,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:09:53.059563013+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37610804206,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 42027245,
+      "RawEnergyJoules": 42.027245,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 23.645450895806054,
+      "EnergyCorrectedJ": 18.381794104193947,
+      "AveragePowerWatts": 42.161743110772264,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Idle",
+      "StageName": "idle",
+      "StageType": "idle",
+      "StartedAt": "2026-09-19T04:09:53.563853027+06:00",
+      "FinishedAt": "2026-09-19T04:10:53.564321615+06:00",
+      "Duration": 60000468598,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:09:53.563853027+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 37630267326,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:10:53.564321615+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 39089053824,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1458786498,
+      "RawEnergyJoules": 1458.786498,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1423.2784648494335,
+      "EnergyCorrectedJ": 35.50803315056646,
+      "AveragePowerWatts": 24.312918416917594,
+      "CPUAvgPercent": 1.2633597236476781,
+      "CPUPeakPercent": 3.6758563074352546,
+      "MemAvgMB": 4048.790916313559,
+      "MemPeakMB": 4396.9453125,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "light-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:11:03.573528182+06:00",
+      "FinishedAt": "2026-09-19T04:12:05.440414603+06:00",
+      "Duration": 61866886420,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:11:03.573528182+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 39346560481,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:12:05.440414603+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 41740585600,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 2394025119,
+      "RawEnergyJoules": 2394.025119,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1467.551990615736,
+      "EnergyCorrectedJ": 926.4731283842639,
+      "AveragePowerWatts": 38.69638925656476,
+      "CPUAvgPercent": 5.810520119237338,
+      "CPUPeakPercent": 11.779448621553884,
+      "MemAvgMB": 4022.644851434426,
+      "MemPeakMB": 4122.47265625,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 100,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "medium-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:12:15.449563717+06:00",
+      "FinishedAt": "2026-09-19T04:13:25.529639325+06:00",
+      "Duration": 70080075608,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:12:15.449563717+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 41994743065,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:13:25.529639325+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 45655517311,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 3660774246,
+      "RawEnergyJoules": 3660.774246,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 1662.3780573475592,
+      "EnergyCorrectedJ": 1998.3961886524407,
+      "AveragePowerWatts": 52.23701907054027,
+      "CPUAvgPercent": 97.38292547681544,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 6210.801339285715,
+      "MemPeakMB": 6673.046875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 10000,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Workload",
+      "StageName": "heavy-load",
+      "StageType": "k6",
+      "StartedAt": "2026-09-19T04:13:35.538917616+06:00",
+      "FinishedAt": "2026-09-19T04:15:40.943136265+06:00",
+      "Duration": 125404218639,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:13:35.538917616+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 45916250456,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:15:40.943136265+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 53551695496,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 7635445040,
+      "RawEnergyJoules": 7635.44504,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 2974.728830636301,
+      "EnergyCorrectedJ": 4660.716209363698,
+      "AveragePowerWatts": 60.8866681110632,
+      "CPUAvgPercent": 71.80765140378206,
+      "CPUPeakPercent": 100,
+      "MemAvgMB": 9952.11328125,
+      "MemPeakMB": 11016.6796875,
+      "K6Result": {
+        "avg_latency_ms": 0,
+        "p95_latency_ms": 0,
+        "p99_latency_ms": 0,
+        "throughput_rps": 0,
+        "total_requests": 0
+      },
+      "K6RateTarget": 50000,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Stop",
+      "StageName": "stop",
+      "StageType": "stop",
+      "StartedAt": "2026-09-19T04:15:40.943279339+06:00",
+      "FinishedAt": "2026-09-19T04:15:42.179218733+06:00",
+      "Duration": 1235939404,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:15:40.943279339+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 53551695496,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:15:42.179218733+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 53616421824,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 64726328,
+      "RawEnergyJoules": 64.726328,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 29.31786998794672,
+      "EnergyCorrectedJ": 35.40845801205327,
+      "AveragePowerWatts": 52.37014678107956,
+      "CPUAvgPercent": 19.81450252951096,
+      "CPUPeakPercent": 19.81450252951096,
+      "MemAvgMB": 4136.421875,
+      "MemPeakMB": 4136.421875,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    },
+    {
+      "ExperimentID": "cpu-api-distroless",
+      "TrialID": "cpu-api-distroless-t3",
+      "TrialNumber": 3,
+      "ImageMetadata": {
+        "Name": "green-cpu-api",
+        "Tag": "distroless",
+        "Digest": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "ID": "sha256:836427b3ea93652e512377834f3186caaf27b6e5901936adfddae9774d14f026",
+        "SizeBytes": 6249649,
+        "SizeMB": 5.960129737854004,
+        "NumLayers": 13
+      },
+      "Stage": "Cleanup",
+      "StageName": "cleanup",
+      "StageType": "cleanup",
+      "StartedAt": "2026-09-19T04:15:42.179310369+06:00",
+      "FinishedAt": "2026-09-19T04:15:42.207067623+06:00",
+      "Duration": 27757254,
+      "RAPLBefore": {
+        "Timestamp": "2026-09-19T04:15:42.179310369+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 53616421824,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RAPLAfter": {
+        "Timestamp": "2026-09-19T04:15:42.207067623+06:00",
+        "Domains": {
+          "intel-rapl:0": {
+            "ID": "intel-rapl:0",
+            "EnergyMicroJoules": 53617758150,
+            "MaxEnergyRangeUJ": 65532610987
+          }
+        }
+      },
+      "RawEnergyMicroJoules": 1336326,
+      "RawEnergyJoules": 1.336326,
+      "BaselinePowerWatts": 23.721122486314645,
+      "BackgroundEnergyJ": 0.6584332220177471,
+      "EnergyCorrectedJ": 0.6778927779822528,
+      "AveragePowerWatts": 48.14330697121552,
+      "CPUAvgPercent": 0,
+      "CPUPeakPercent": 0,
+      "MemAvgMB": 0,
+      "MemPeakMB": 0,
+      "K6Result": null,
+      "K6RateTarget": 0,
+      "BaseImage": "gcr.io/distroless/static-debian12",
+      "Success": true,
+      "Error": ""
+    }
+  ]
+}
